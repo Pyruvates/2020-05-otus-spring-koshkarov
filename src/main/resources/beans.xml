@@ -4,10 +4,15 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <beans>
-        <bean id="user" name="user" class="ru.koshkarovvitaliy.User">
-            <constructor-arg name="name" type="String" value="Jonh"/>
-            <constructor-arg name="age" type="int" value="18"/>
+        <bean id="questions" class="ru.koshkarovvitaliy.model.Questions">
+            <constructor-arg name="classPath" type="String" value="/quiz/questions.csv"/>
         </bean>
+
+        <bean id="answers" class="ru.koshkarovvitaliy.model.Answers">
+            <constructor-arg name="classPath" type="String" value="/quiz/answers.csv"/>
+        </bean>
+
+        <bean id="quizService" class="ru.koshkarovvitaliy.service.QuizService"/>
     </beans>
 
 </beans>
