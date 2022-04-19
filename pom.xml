@@ -16,6 +16,7 @@
 
     <modules>
         <module>xml-configuration</module>
+        <module>java-annotation-based-configuration</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -29,6 +30,7 @@
         <spring.core>5.3.18</spring.core>
         <spring.context>${spring.core}</spring.context>
         <apache.commons.io>2.11.0</apache.commons.io>
+        <lombok>1.18.24</lombok>
     </properties>
 
     <dependencies>
@@ -48,6 +50,13 @@
             <groupId>commons-io</groupId>
             <artifactId>commons-io</artifactId>
             <version>${apache.commons.io}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 
