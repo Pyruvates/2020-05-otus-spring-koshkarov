@@ -1,0 +1,5 @@
+int,short,byte,char
+functional,object-oriented,struct,procedural
+commit,update,fetch,add
+package,compile,install,collect
+true,false

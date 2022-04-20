@@ -6,8 +6,8 @@ import org.springframework.beans.factory.annotation.Value;
 
 @Getter
 @Setter
-public class Questions {
+public class Options {
 
-    @Value("${questions.path}")
+    @Value("${options.path}")
     private String path;
 }

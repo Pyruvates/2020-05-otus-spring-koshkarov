@@ -1,5 +1,5 @@
-1. Which programming language are you learning?
-2. Do you like it?
-3. Why are you learning to program?
-4. What is the most interesting for you in programming?
-5. Will you continue?
+1. What is the smallest data type for numbers in Java?
+2. Substitute the correct option: 'Java is a(an) ... language'
+3. What command in git updates the index to prepare the content for the next commit?
+4. Which maven command is used to collect sources and dependencies into one file?
+5. What will be printed to the output stream after executing the following instruction 'System.out.println("first" == new String("first"));'?

@@ -7,6 +7,7 @@ import org.springframework.core.io.Resource;
 import ru.koshkarovvitaliy.model.Answers;
 import ru.koshkarovvitaliy.model.Questions;
 import ru.koshkarovvitaliy.service.QuizService;
+import ru.koshkarovvitaliy.model.Options;
 
 import java.io.IOException;
 import java.util.List;
@@ -17,14 +18,18 @@ public class Application {
         ApplicationContext context = new AnnotationConfigApplicationContext(Application.class);
 
         Questions questions = context.getBean(Questions.class);
-        Resource resource = context.getResource(questions.getClassPath());
+        Resource resource = context.getResource(questions.getPath());
         List<String> questionsStr = Utils.convertResourceToList(resource);
 
+        Options options = context.getBean(Options.class);
+        resource = context.getResource(options.getPath());
+        List<String> optionsStr = Utils.convertResourceToList(resource);
+
         Answers answers = context.getBean(Answers.class);
-        resource = context.getResource(answers.getClassPath());
-        List<String> answersStr = Utils.convertResourceToList(resource);
 
         QuizService quizService = context.getBean(QuizService.class);
-        quizService.holdQuiz(questionsStr, answersStr);
+        quizService.holdQuiz(questionsStr, optionsStr, answers);
+
+        System.out.println(answers.getResults());
     }
 }
