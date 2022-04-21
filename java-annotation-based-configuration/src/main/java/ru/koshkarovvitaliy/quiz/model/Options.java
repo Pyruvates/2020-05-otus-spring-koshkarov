@@ -1,4 +1,4 @@
-package ru.koshkarovvitaliy.model;
+package ru.koshkarovvitaliy.quiz.model;
 
 import lombok.Getter;
 import lombok.Setter;

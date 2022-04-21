@@ -1,5 +1,5 @@
+functional,object-oriented,procedural,multi-paradigm
 int,short,byte,char
-functional,object-oriented,struct,procedural
 commit,update,fetch,add
-package,compile,install,collect
+package,collect,compile,install
 true,false

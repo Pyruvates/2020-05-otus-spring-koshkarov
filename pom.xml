@@ -27,6 +27,8 @@
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.plugin>3.10.1</maven.compiler.plugin>
+        <maven.jar.plugin>3.2.2</maven.jar.plugin>
+        <maven.assembly.plugin>3.3.0</maven.assembly.plugin>
         <spring.core>5.3.18</spring.core>
         <spring.context>${spring.core}</spring.context>
         <apache.commons.io>2.11.0</apache.commons.io>

@@ -1,4 +1,4 @@
-package ru.koshkarovvitaliy;
+package ru.koshkarovvitaliy.quiz;
 
 import org.springframework.core.io.Resource;
 

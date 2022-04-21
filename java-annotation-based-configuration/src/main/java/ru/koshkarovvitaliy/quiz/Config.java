@@ -1,12 +1,11 @@
-package ru.koshkarovvitaliy;
+package ru.koshkarovvitaliy.quiz;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
-import ru.koshkarovvitaliy.model.Answers;
-import ru.koshkarovvitaliy.model.Options;
-import ru.koshkarovvitaliy.model.Questions;
-import ru.koshkarovvitaliy.service.QuizService;
+import ru.koshkarovvitaliy.quiz.model.Answers;
+import ru.koshkarovvitaliy.quiz.model.Questions;
+import ru.koshkarovvitaliy.quiz.model.Options;
 
 @Configuration
 @PropertySource("classpath:application.properties")
@@ -25,10 +24,5 @@ public class Config {
     @Bean
     public Answers answers() {
         return new Answers();
-    }
-
-    @Bean
-    public QuizService quizService() {
-        return new QuizService();
     }
 }
