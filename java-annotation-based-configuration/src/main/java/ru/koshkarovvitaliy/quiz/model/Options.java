@@ -1,13 +1,12 @@
 package ru.koshkarovvitaliy.quiz.model;
 
 import lombok.Getter;
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.Resource;
 
 @Getter
-@Setter
 public class Options {
 
     @Value("${options.path}")
-    private String path;
+    private Resource resource;
 }
