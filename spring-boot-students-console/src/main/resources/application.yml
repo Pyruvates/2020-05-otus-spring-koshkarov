@@ -1,0 +1,20 @@
+spring:
+  main:
+    web-application-type: NONE
+
+logging:
+  level:
+    root: INFO
+  pattern:
+    console: "%d{HH:mm:ss.SSS} [%thread] %-5level %logger - %msg%n"
+
+application:
+  questions:
+    path: "/quiz/questions.csv"
+  options:
+    path: "/quiz/options.csv"
+  answers:
+    path: "/quiz/answers.csv"
+    max:
+      failed:
+        count: 3
