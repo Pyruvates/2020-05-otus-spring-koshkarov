@@ -18,6 +18,7 @@
         <module>xml-configuration</module>
         <module>java-annotation-based-configuration</module>
         <module>spring-boot-students-console</module>
+        <module>jpa_hibernate</module>
     </modules>
 
     <packaging>pom</packaging>
