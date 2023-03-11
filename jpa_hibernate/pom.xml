@@ -7,45 +7,63 @@
     <groupId>ru.koshkarovvitaliy</groupId>
     <artifactId>jpa_hibernate</artifactId>
 
+    <packaging>jar</packaging>
+
+    <properties>
+        <com.h2database>2.1.214</com.h2database>
+        <spring.boot.starter.parent>3.0.4</spring.boot.starter.parent>
+        <spring.boot.maven.plugin>3.0.4</spring.boot.maven.plugin>
+    </properties>
+
     <parent>
         <artifactId>spring-course</artifactId>
         <groupId>2020-05-otus-spring-koshkarov</groupId>
         <version>1.1.0</version>
     </parent>
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-parent</artifactId>
-            <version>2.3.1.RELEASE</version>
+            <version>${spring.boot.starter.parent}</version>
+            <type>pom</type>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
-            <version>2.3.1.RELEASE</version>
+            <version>${spring.boot.starter.parent}</version>
         </dependency>
-
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <version>2.1.214</version>
+            <version>${com.h2database}</version>
             <scope>runtime</scope>
         </dependency>
     </dependencies>
 
     <build>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>3.0.4</version>
+                <version>${spring.boot.maven.plugin}</version>
+                <configuration>
+                    <mainClass>ru.koshkarovvitaliy.Main</mainClass>
+                    <additionalProperties>
+                        <encoding.source>${project.build.sourceEncoding}</encoding.source>
+                        <encoding.reporting>${project.build.sourceEncoding}</encoding.reporting>
+                        <java.source>${maven.compiler.source}</java.source>
+                        <java.target>${maven.compiler.target}</java.target>
+                    </additionalProperties>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
