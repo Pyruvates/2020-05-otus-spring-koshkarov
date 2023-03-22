@@ -18,43 +18,23 @@
         <module>xml-configuration</module>
         <module>java-annotation-based-configuration</module>
         <module>spring-boot-students-console</module>
+        <module>jpa_hibernate</module>
     </modules>
 
     <packaging>pom</packaging>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
         <maven.compiler.plugin>3.10.1</maven.compiler.plugin>
-        <maven.jar.plugin>3.2.2</maven.jar.plugin>
         <maven.assembly.plugin>3.3.0</maven.assembly.plugin>
-        <spring.core>5.3.18</spring.core>
-        <spring.context>${spring.core}</spring.context>
-        <apache.commons.io>2.11.0</apache.commons.io>
+        <maven.jar.plugin>3.2.2</maven.jar.plugin>
         <lombok>1.18.24</lombok>
     </properties>
 
     <dependencies>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-core</artifactId>
-            <version>${spring.core}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-            <version>${spring.context}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>commons-io</groupId>
-            <artifactId>commons-io</artifactId>
-            <version>${apache.commons.io}</version>
-        </dependency>
-
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

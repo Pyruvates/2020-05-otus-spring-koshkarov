@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ru.koshkarovvitaliy</groupId>
+    <artifactId>jpa_hibernate</artifactId>
+
+    <packaging>jar</packaging>
+
+    <properties>
+        <com.h2database>2.1.214</com.h2database>
+        <spring.boot.starter>3.0.4</spring.boot.starter>
+        <spring.boot.maven.plugin>${spring.boot.starter}</spring.boot.maven.plugin>
+    </properties>
+
+    <parent>
+        <artifactId>spring-course</artifactId>
+        <groupId>2020-05-otus-spring-koshkarov</groupId>
+        <version>1.1.0</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <version>${spring.boot.starter}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <version>${spring.boot.starter}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+            <version>${com.h2database}</version>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.maven.plugin}</version>
+                <configuration>
+                    <mainClass>ru.koshkarovvitaliy.Main</mainClass>
+                    <additionalProperties>
+                        <encoding.source>${project.build.sourceEncoding}</encoding.source>
+                        <encoding.reporting>${project.build.sourceEncoding}</encoding.reporting>
+                        <java.source>${maven.compiler.source}</java.source>
+                        <java.target>${maven.compiler.target}</java.target>
+                    </additionalProperties>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -11,7 +11,25 @@
 
     <artifactId>java-annotation-based-configuration</artifactId>
 
+    <properties>
+        <spring.core>5.3.18</spring.core>
+        <spring.context>${spring.core}</spring.context>
+    </properties>
+
     <packaging>jar</packaging>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>${spring.core}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>${spring.context}</version>
+        </dependency>
+    </dependencies>
 
     <build>
         <plugins>
