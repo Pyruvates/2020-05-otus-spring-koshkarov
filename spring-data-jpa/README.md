@@ -1,0 +1,1 @@
+Rewrite book storage application (`jpa_hibernate`) with Spring Data JPA
