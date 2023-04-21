@@ -23,6 +23,20 @@
         <spring.boot.maven.plugin>${spring.boot.starter}</spring.boot.maven.plugin>
     </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+            <version>${spring.boot.starter}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-keyvalue</artifactId>
+            <version>${spring.boot.starter}</version>
+        </dependency>
+
+    </dependencies>
+
     <build>
         <finalName>${project.artifactId}</finalName>
         <plugins>
