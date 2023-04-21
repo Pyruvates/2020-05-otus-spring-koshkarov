@@ -20,6 +20,7 @@
         <module>spring-boot-students-console</module>
         <module>jpa_hibernate</module>
         <module>spring-data-jpa</module>
+        <module>spring-data-no-sql</module>
     </modules>
 
     <packaging>pom</packaging>
