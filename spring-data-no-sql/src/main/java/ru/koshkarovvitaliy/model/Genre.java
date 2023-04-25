@@ -8,6 +8,7 @@ import org.springframework.data.keyvalue.annotation.KeySpace;
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @ToString
 public class Genre {
     @Id

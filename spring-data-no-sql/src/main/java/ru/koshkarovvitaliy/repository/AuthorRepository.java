@@ -1,4 +1,7 @@
 package ru.koshkarovvitaliy.repository;
 
-public interface AuthorRepository {
+import org.springframework.data.keyvalue.repository.KeyValueRepository;
+import ru.koshkarovvitaliy.model.Author;
+
+public interface AuthorRepository extends KeyValueRepository<Author, Integer> {
 }
