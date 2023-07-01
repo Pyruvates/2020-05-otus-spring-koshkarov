@@ -21,6 +21,7 @@
         <module>jpa_hibernate</module>
         <module>spring-data-jpa</module>
         <module>spring-data-no-sql</module>
+        <module>spring-mvc-thymeleaf</module>
     </modules>
 
     <packaging>pom</packaging>
