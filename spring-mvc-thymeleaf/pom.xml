@@ -30,7 +30,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>${spring.boot.maven.plugin}</version>
                 <configuration>
-                    <mainClass>ru.koshkarovvitaliy.Main</mainClass>
+                    <mainClass>ru.koshkarovvitaliy.SpringMVCThymeleafApp</mainClass>
                     <additionalProperties>
                         <encoding.source>${project.build.sourceEncoding}</encoding.source>
                         <encoding.reporting>${project.build.sourceEncoding}</encoding.reporting>
