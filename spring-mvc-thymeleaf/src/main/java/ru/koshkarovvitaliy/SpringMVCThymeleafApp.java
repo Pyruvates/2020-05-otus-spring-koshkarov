@@ -1,8 +1,11 @@
 package ru.koshkarovvitaliy;
 
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
 public class SpringMVCThymeleafApp {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
-        System.out.println("Thymeleaf");
+        SpringApplication.run(SpringMVCThymeleafApp.class, args);
     }
 }
