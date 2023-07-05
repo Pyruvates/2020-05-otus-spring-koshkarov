@@ -26,7 +26,7 @@ public class LibraryController {
     public ModelAndView genres() {
         List<Genre> genres = genreService.getAllGenres();
 
-        log.info("{}", genres);
+        log.info("All genres: {}", genres);
 
         ModelAndView modelAndView = new ModelAndView("genre/genres.html");
         modelAndView.addObject("genres", genres);
@@ -38,7 +38,7 @@ public class LibraryController {
     public String authors(Model authorModel) {
         List<Author> authors = authorService.getAllAuthors();
 
-        log.info("{}", authors);
+        log.info("All authors: {}", authors);
 
         authorModel.addAttribute("authors", authors);
 
