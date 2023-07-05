@@ -1,16 +1,16 @@
 package ru.koshkarovvitaliy.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
-import ru.koshkarovvitaliy.GenreRepository;
 import ru.koshkarovvitaliy.model.Genre;
+import ru.koshkarovvitaliy.repository.GenreRepository;
 
 import java.util.List;
 
 @Service
-public class LibraryService {
-    @Autowired
-    private GenreRepository genreRepository;
+@AllArgsConstructor
+public class GenreService {
+    private final GenreRepository genreRepository;
 
     public List<Genre> getAllGenres() {
         return genreRepository.findAll();
