@@ -1,0 +1,33 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Genres</title>
+    <style type="text/css">
+        .genres, .genres td {
+            border: 1px solid lightgray;
+            padding: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p>List of genres</p>
+        <table class="genres">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="genre : ${genres}">
+                <td th:text="${genre.id}">1</td>
+                <td th:text="${genre.name}">Book title</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
