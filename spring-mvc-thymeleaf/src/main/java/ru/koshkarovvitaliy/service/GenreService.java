@@ -17,7 +17,6 @@ public class GenreService {
     }
 
     public Genre saveNewGenre(final Genre genre) {
-//        return genreRepository.saveAndFlush(genre);
         return genreRepository.save(genre);
     }
 }

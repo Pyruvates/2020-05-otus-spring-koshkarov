@@ -13,11 +13,10 @@
 <body>
     <div>Adding new genre</div>
     <div>
-        <form class="addGenreForm" th:action="@{/library/genres/saveNewGenre}" method="post" th:object="${genre}">
-            <label>Genre name
-                <input value=""/>
-            </label>
-            <button class="saveNewGenre" type="button" onclick="console.log('Save new genre')">Save</button>
+        <form class="addGenreForm" action="#" th:action="@{/library/genres/saveNewGenre}" method="post" th:object="${genre}">
+            <label>Genre name</label>
+            <input type="text" th:field="*{name}"/>
+            <button class="saveNewGenre" type="submit">Add</button>
         </form>
     </div>
 </body>

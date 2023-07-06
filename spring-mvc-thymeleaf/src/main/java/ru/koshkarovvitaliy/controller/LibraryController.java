@@ -5,6 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import ru.koshkarovvitaliy.model.Author;
@@ -36,11 +38,21 @@ public class LibraryController {
 
     @GetMapping(path = "/genres/addNewGenre")
     public ModelAndView addNewGenre() {
-        return new ModelAndView("genre/newGenre.html");
+        return new ModelAndView("genre/newGenre.html")
+                .addObject("genre", new Genre());
+    }
+
+    @PostMapping(path = "/genres/saveNewGenre")
+    public ModelAndView saveNewGenre(@ModelAttribute("genre") final Genre genre) {
+        Genre newGenre = genreService.saveNewGenre(genre);
+
+        log.info("Saved genre: {}", newGenre);
+
+        return new ModelAndView("redirect:/library/genres");
     }
 
     @GetMapping(path = "/authors")
-    public String authors(Model authorModel) {
+    public String authors(final Model authorModel) {
         List<Author> authors = authorService.getAllAuthors();
 
         log.info("All authors: {}", authors);
