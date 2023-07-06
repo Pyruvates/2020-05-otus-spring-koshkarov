@@ -34,6 +34,11 @@ public class LibraryController {
         return modelAndView;
     }
 
+    @GetMapping(path = "/genres/addNewGenre")
+    public ModelAndView addNewGenre() {
+        return new ModelAndView("genre/newGenre.html");
+    }
+
     @GetMapping(path = "/authors")
     public String authors(Model authorModel) {
         List<Author> authors = authorService.getAllAuthors();

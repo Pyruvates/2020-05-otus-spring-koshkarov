@@ -14,50 +14,30 @@
         .createNewGenreBtn {
             margin-top: 5px;
             margin-bottom: 5px;
-        }
-
-        .createGenreForm {
-            padding-bottom: 5px;
-            display: none;
+            cursor: pointer;
         }
     </style>
-
-    <script>
-        function openCreateNewGenreForm() {
-            document.getElementsByClassName('createGenreForm')[0].style['margin-top']='5px';
-            document.getElementsByClassName('createGenreForm')[0].style['display']='block';
-        }
-    </script>
 </head>
 
 <body>
-    <div>
-        <div>List of genres</div>
-        <div>
-            <button class="createNewGenreBtn" onclick="openCreateNewGenreForm()">Add new genre</button>
-            <form class="createGenreForm">
-                <label>Genre name
-                    <input value=""/>
-                </label>
+    <div>List of genres</div>
+    <form th:action="@{/library/genres/addNewGenre}">
+        <button class="createNewGenreBtn">Add new genre</button>
+    </form>
 
-                <button class="saveNewGenre" onclick="console.log('Save new genre')">Save</button>
-            </form>
-        </div>
-
-        <table class="tableGenres">
-            <thead>
+    <table class="tableGenres">
+        <thead>
             <tr>
                 <th>ID</th>
                 <th>Name</th>
             </tr>
-            </thead>
-            <tbody>
+        </thead>
+        <tbody>
             <tr th:each="genre : ${genres}">
                 <td th:text="${genre.id}">1</td>
                 <td th:text="${genre.name}">Book title</td>
             </tr>
-            </tbody>
-        </table>
-    </div>
+        </tbody>
+    </table>
 </body>
 </html>
