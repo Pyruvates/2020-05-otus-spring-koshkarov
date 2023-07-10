@@ -30,10 +30,10 @@ public class LibraryController {
 
         log.info("All genres: {}", genres);
 
-        ModelAndView modelAndView = new ModelAndView("genre/genres.html");
-        modelAndView.addObject("genres", genres);
+        ModelAndView genresModelAndView = new ModelAndView("genre/genres.html");
+        genresModelAndView.addObject("genres", genres);
 
-        return modelAndView;
+        return genresModelAndView;
     }
 
     @GetMapping(path = "/genres/addNewGenre")
@@ -49,6 +49,13 @@ public class LibraryController {
         log.info("Saved genre: {}", newGenre);
 
         return new ModelAndView("redirect:/library/genres");
+    }
+
+//    TODO: make redirect genres page and redirect after edit to genres page
+    @GetMapping(path = "genres/edit")
+    public ModelAndView editGenre(@ModelAttribute("genre") final Genre genre) {
+        return new ModelAndView("genre/editGenre.html")
+                .addObject("genre", genre);
     }
 
     @GetMapping(path = "/authors")

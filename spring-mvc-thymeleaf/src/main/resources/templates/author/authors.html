@@ -4,33 +4,39 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Authors</title>
     <style type="text/css">
+        body {
+            padding: 20px;
+        }
+
+        .header {
+            font-size: larger;
+            padding-bottom: 10px;
+        }
+
         .authors, .authors td {
             border: 1px solid lightgray;
-            padding: 5px;
             text-align: center;
         }
     </style>
 </head>
 
 <body>
-<div>
-    <p>List of authors</p>
-    <table class="authors" cellpadding="6" cellspacing="4">
+    <div class="header">List of authors</div>
+    <table class="authors" cellpadding="6" cellspacing="4" style="font-size: large;">
         <thead>
-        <tr>
-            <th>ID</th>
-            <th>First name</th>
-            <th>Last name</th>
-        </tr>
+            <tr>
+                <th>ID</th>
+                <th>First name</th>
+                <th>Last name</th>
+            </tr>
         </thead>
         <tbody>
-        <tr th:each="author : ${authors}">
-            <td th:text="${author.id}">1</td>
-            <td th:text="${author.firstName}">First name</td>
-            <td th:text="${author.lastName}">Last name</td>
-        </tr>
+            <tr th:each="author : ${authors}">
+                <td th:text="${author.id}">1</td>
+                <td th:text="${author.firstName}">First name</td>
+                <td th:text="${author.lastName}">Last name</td>
+            </tr>
         </tbody>
     </table>
-</div>
 </body>
 </html>

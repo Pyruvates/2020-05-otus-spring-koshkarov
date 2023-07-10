@@ -2,8 +2,16 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Genres</title>
+    <title>Add new genre</title>
     <style type="text/css">
+        body {
+            padding: 20px;
+        }
+
+        .font-larger {
+            font-size: larger;
+        }
+
         .addGenreForm {
             margin-top: 10px;
         }
@@ -11,13 +19,11 @@
 </head>
 
 <body>
-    <div>Adding new genre</div>
-    <div>
-        <form class="addGenreForm" action="#" th:action="@{/library/genres/saveNewGenre}" method="post" th:object="${genre}">
-            <label>Genre name</label>
-            <input type="text" th:field="*{name}"/>
-            <button class="saveNewGenre" type="submit">Add</button>
-        </form>
-    </div>
+    <div class="font-larger">Adding new genre</div>
+    <form class="addGenreForm" th:action="@{/library/genres/saveNewGenre}" method="post" th:object="${genre}">
+        <label class="font-larger">Genre name</label>
+        <input type="text" th:field="*{name}"/>
+        <button class="saveNewGenre" type="submit" style="font-size: medium;">Add</button>
+    </form>
 </body>
 </html>
