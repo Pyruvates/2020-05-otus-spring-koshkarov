@@ -24,4 +24,8 @@ public class GenreService {
     public Genre findById(final Integer id) {
         return genreRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
+
+    public void deleteGenre(final Integer id) {
+        genreRepository.deleteById(id);
+    }
 }

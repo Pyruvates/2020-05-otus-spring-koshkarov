@@ -18,13 +18,13 @@ import java.util.List;
 public class GenreController {
     private final GenreService genreService;
 
-    @GetMapping(path = "/genres")
+    @GetMapping(path = "/genre")
     public ModelAndView genres() {
         List<Genre> genres = genreService.getAllGenres();
 
         log.info("All genres {}", genres);
 
-        ModelAndView genresModelAndView = new ModelAndView("genre/genres.html");
+        ModelAndView genresModelAndView = new ModelAndView("genre/genre.html");
         genresModelAndView.addObject("genres", genres);
 
         return genresModelAndView;
@@ -41,12 +41,12 @@ public class GenreController {
 
         log.info("Saved genre {}", newGenre);
 
-        return new ModelAndView("redirect:/library/genres");
+        return new ModelAndView("redirect:/library/genre");
     }
 
     @PostMapping(path = "/genre/saveNewGenre", params = "cancel")
     public ModelAndView cancelSaveNewGenre() {
-        return new ModelAndView("redirect:/library/genres");
+        return new ModelAndView("redirect:/library/genre");
     }
 
     @GetMapping(path = "genre/edit")
@@ -64,12 +64,22 @@ public class GenreController {
     public ModelAndView saveEditedGenre(@ModelAttribute("genre") final Genre genre) {
         Genre editedGenre = genreService.saveNewGenre(genre);
         log.info("Saved genre after edit {}", editedGenre);
-        return new ModelAndView("redirect:/library/genres");
+        return new ModelAndView("redirect:/library/genre");
     }
 
     @PostMapping(path = "genre/edit", params = "cancel")
     public ModelAndView cancelSaveEditedGenre(@ModelAttribute("genre") final Genre genre) {
         log.info("Cancel edit {}", genre);
-        return new ModelAndView("redirect:/library/genres");
+        return new ModelAndView("redirect:/library/genre");
+    }
+
+//    TODO: why @DeleteMapping isn't working?
+    @PostMapping(path = "genre/delete")
+    public ModelAndView deleteGenre(@RequestParam("id") final Integer id) {
+        genreService.deleteGenre(id);
+
+        log.info("Genre with id {} has been deleted", id);
+
+        return new ModelAndView("redirect:/library/genre");
     }
 }

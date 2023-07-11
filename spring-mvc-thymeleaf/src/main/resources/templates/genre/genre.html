@@ -21,12 +21,17 @@
             margin-bottom: 5px;
             cursor: pointer;
         }
+
+        .deleteBtn {
+            font-size: medium;
+            cursor: pointer;
+        }
     </style>
 </head>
 
 <body>
     <div style="font-size: larger;">List of genres</div>
-    <form th:action="@{/library/genre/addNewGenre}">
+    <form th:action="@{/library/genre/addNewGenre}" th:method="get">
         <button class="createNewGenreBtn" style="font-size: medium;">Add new genre</button>
     </form>
 
@@ -35,7 +40,8 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th>Action</th>
+                <th>Action edit</th>
+                <th>Action delete</th>
             </tr>
         </thead>
         <tbody>
@@ -44,6 +50,11 @@
                 <td th:text="${genre.name}">Book title</td>
                 <td>
                     <a th:href="@{/library/genre/edit(id=${genre.id})}" href="edit.html">Edit</a>
+                </td>
+                <td>
+                    <form th:action="@{/library/genre/delete(id=${genre.id})}" th:method="delete">
+                        <button class="deleteBtn" type="submit">Delete</button>
+                    </form>
                 </td>
             </tr>
         </tbody>
