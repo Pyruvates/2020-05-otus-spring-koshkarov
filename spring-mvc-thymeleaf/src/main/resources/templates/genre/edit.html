@@ -23,15 +23,23 @@
             width: 60px;
         }
 
-        .button {
+        .save {
             margin-top: 4px;
+            margin-right: 4px;
             margin-left: 6px;
+            font-size: medium;
+        }
+
+        .cancel {
+            margin-top: 4px;
+            margin-left: 4px;
             font-size: medium;
         }
     </style>
 </head>
+
 <body>
-    <form th:action="@{/library/genres}">
+    <form th:action="@{/library/genre/edit(id=${genre.id})}" th:method="post">
         <div class="header">Editing genre</div>
 
         <div class="row">
@@ -45,7 +53,8 @@
         </div>
 
         <div>
-            <button class="button" type="submit">Save</button>
+            <button class="save" type="submit" name="save">Save</button>
+            <button class="cancel" type="submit" name="cancel">Cancel</button>
         </div>
     </form>
 </body>

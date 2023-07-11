@@ -26,7 +26,7 @@
 
 <body>
     <div style="font-size: larger;">List of genres</div>
-    <form th:action="@{/library/genres/addNewGenre}">
+    <form th:action="@{/library/genre/addNewGenre}">
         <button class="createNewGenreBtn" style="font-size: medium;">Add new genre</button>
     </form>
 
@@ -35,12 +35,16 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="genre : ${genres}">
                 <td th:text="${genre.id}">1</td>
                 <td th:text="${genre.name}">Book title</td>
+                <td>
+                    <a th:href="@{/library/genre/edit(id=${genre.id})}" href="edit.html">Edit</a>
+                </td>
             </tr>
         </tbody>
     </table>

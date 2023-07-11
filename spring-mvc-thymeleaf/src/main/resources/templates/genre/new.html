@@ -32,7 +32,7 @@
 
 <body>
     <div class="font-larger">Adding new genre</div>
-    <form class="addGenreForm" th:action="@{/library/genres/saveNewGenre}" method="post" th:object="${genre}">
+    <form class="addGenreForm" th:action="@{/library/genre/saveNewGenre}" method="post" th:object="${genre}">
         <label class="font-larger">Genre name</label>
         <input type="text" th:field="*{name}"/>
         <div class="buttons">
