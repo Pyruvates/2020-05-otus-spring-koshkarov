@@ -15,6 +15,18 @@
         .addGenreForm {
             margin-top: 10px;
         }
+
+        .buttons {
+            padding-top: 10px;
+        }
+
+        .add {
+            margin-right: 4px;
+        }
+
+        .cancel {
+            margin-left: 4px;
+        }
     </style>
 </head>
 
@@ -23,7 +35,10 @@
     <form class="addGenreForm" th:action="@{/library/genres/saveNewGenre}" method="post" th:object="${genre}">
         <label class="font-larger">Genre name</label>
         <input type="text" th:field="*{name}"/>
-        <button class="saveNewGenre" type="submit" style="font-size: medium;">Add</button>
+        <div class="buttons">
+            <button class="add" type="submit" name="add" style="font-size: medium;">Add</button>
+            <button class="cancel" type="submit" name="cancel" style="font-size: medium;">Cancel</button>
+        </div>
     </form>
 </body>
 </html>

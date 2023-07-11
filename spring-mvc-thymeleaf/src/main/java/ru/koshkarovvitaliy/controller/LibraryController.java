@@ -37,17 +37,21 @@ public class LibraryController {
     }
 
     @GetMapping(path = "/genres/addNewGenre")
-    public ModelAndView addNewGenre() {
-        return new ModelAndView("genre/newGenre.html")
-                .addObject("genre", new Genre());
+    public ModelAndView addNewGenre(@ModelAttribute("genre") final Genre genre) {
+        return new ModelAndView("genre/newGenre.html");
     }
 
-    @PostMapping(path = "/genres/saveNewGenre")
+    @PostMapping(path = "/genres/saveNewGenre", params = "add")
     public ModelAndView saveNewGenre(@ModelAttribute("genre") final Genre genre) {
         Genre newGenre = genreService.saveNewGenre(genre);
 
         log.info("Saved genre: {}", newGenre);
 
+        return new ModelAndView("redirect:/library/genres");
+    }
+
+    @PostMapping(path = "/genres/saveNewGenre", params = "cancel")
+    public ModelAndView cancelSaveNewGenre() {
         return new ModelAndView("redirect:/library/genres");
     }
 
