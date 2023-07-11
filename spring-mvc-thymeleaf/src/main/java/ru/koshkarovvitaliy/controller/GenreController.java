@@ -6,9 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import ru.koshkarovvitaliy.model.Author;
 import ru.koshkarovvitaliy.model.Genre;
-import ru.koshkarovvitaliy.service.AuthorService;
 import ru.koshkarovvitaliy.service.GenreService;
 
 import java.util.List;
@@ -17,8 +15,7 @@ import java.util.List;
 @Slf4j
 @RequestMapping(path = "/library")
 @AllArgsConstructor
-public class LibraryController {
-    private final AuthorService authorService;
+public class GenreController {
     private final GenreService genreService;
 
     @GetMapping(path = "/genres")
@@ -74,16 +71,5 @@ public class LibraryController {
     public ModelAndView cancelSaveEditedGenre(@ModelAttribute("genre") final Genre genre) {
         log.info("Cancel edit {}", genre);
         return new ModelAndView("redirect:/library/genres");
-    }
-
-    @GetMapping(path = "/authors")
-    public String authors(final Model authorModel) {
-        List<Author> authors = authorService.getAllAuthors();
-
-        log.info("All authors {}", authors);
-
-        authorModel.addAttribute("authors", authors);
-
-        return "author/authors";
     }
 }
