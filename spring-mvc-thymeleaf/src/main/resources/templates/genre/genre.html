@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Genres</title>
+    <style type="text/css">
+        body {
+            padding: 20px;
+        }
+
+        .tableGenres, .tableGenres td {
+            border: 1px solid lightgray;
+            margin-top: 5px;
+            margin-bottom: 5px;
+            text-align: center;
+            font-size: large;
+        }
+
+        .createNewGenreBtn {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            cursor: pointer;
+        }
+
+        .deleteBtn {
+            font-size: medium;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="font-size: larger;">List of genres</div>
+    <form th:method="get" th:action="@{/library/genre/addNewGenre}">
+        <button class="createNewGenreBtn" style="font-size: medium;">Add new genre</button>
+    </form>
+
+    <table class="tableGenres" cellpadding="6" cellspacing="4">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Action edit</th>
+                <th>Action delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="genre : ${genres}">
+                <td th:text="${genre.id}">1</td>
+                <td th:text="${genre.name}">Book title</td>
+                <td>
+                    <a th:href="@{/library/genre/edit(id=${genre.id})}" href="edit.html">Edit</a>
+                </td>
+                <td>
+                    <form th:method="delete" th:action="@{/library/genre/delete(id=${genre.id})}">
+                        <button class="deleteBtn" type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
