@@ -1,4 +1,4 @@
-Spring MVC Thymeleaf application
+Spring MVC Thymeleaf library application
 
 Goal: develop classic web application
 
