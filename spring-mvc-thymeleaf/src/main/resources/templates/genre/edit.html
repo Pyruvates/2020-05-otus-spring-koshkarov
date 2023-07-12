@@ -43,7 +43,7 @@
 </head>
 
 <body>
-    <form th:action="@{/library/genre/edit(id=${genre.id})}" th:method="post">
+    <form th:method="post" th:action="@{/library/genre/edit(id=${genre.id})}">
         <div class="header">Editing genre</div>
 
         <div class="row">

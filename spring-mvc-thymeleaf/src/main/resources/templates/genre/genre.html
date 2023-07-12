@@ -31,7 +31,7 @@
 
 <body>
     <div style="font-size: larger;">List of genres</div>
-    <form th:action="@{/library/genre/addNewGenre}" th:method="get">
+    <form th:method="get" th:action="@{/library/genre/addNewGenre}">
         <button class="createNewGenreBtn" style="font-size: medium;">Add new genre</button>
     </form>
 
@@ -52,7 +52,7 @@
                     <a th:href="@{/library/genre/edit(id=${genre.id})}" href="edit.html">Edit</a>
                 </td>
                 <td>
-                    <form th:action="@{/library/genre/delete(id=${genre.id})}" th:method="delete">
+                    <form th:method="delete" th:action="@{/library/genre/delete(id=${genre.id})}">
                         <button class="deleteBtn" type="submit">Delete</button>
                     </form>
                 </td>
