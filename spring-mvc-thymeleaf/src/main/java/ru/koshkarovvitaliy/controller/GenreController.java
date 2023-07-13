@@ -19,7 +19,7 @@ public class GenreController {
     private final GenreService genreService;
 
     @GetMapping(path = "/genre")
-    public ModelAndView genres(@Value("genre/genre.html") ModelAndView genresModelAndView) {
+    public ModelAndView genres(@Value("genre/genre.html") final ModelAndView genresModelAndView) {
         List<Genre> genres = genreService.getAllGenres();
 
         log.info("All genres {}", genres);
@@ -30,7 +30,7 @@ public class GenreController {
     }
 
     @GetMapping(path = "/genre/addNewGenre")
-    public ModelAndView addNewGenre(@Value("genre/new.html") ModelAndView addGenreModelAndView,
+    public ModelAndView addNewGenre(@Value("genre/new.html") final ModelAndView addGenreModelAndView,
                                     @ModelAttribute("genre") final Genre genre) {
         return addGenreModelAndView;
     }
@@ -50,7 +50,7 @@ public class GenreController {
     }
 
     @GetMapping(path = "genre/edit")
-    public ModelAndView editGenre(@Value("genre/edit.html") ModelAndView editModelAndView,
+    public ModelAndView editGenre(@Value("genre/edit.html") final ModelAndView editModelAndView,
                                   @RequestParam("id") final Integer id) {
         Genre genre = genreService.findById(id);
 
@@ -77,7 +77,6 @@ public class GenreController {
         return new ModelAndView("redirect:/library/genre");
     }
 
-//    TODO: why @DeleteMapping isn't working?
     @PostMapping(path = "genre/delete")
     public ModelAndView deleteGenre(@RequestParam("id") final Integer id) {
         genreService.deleteGenre(id);
