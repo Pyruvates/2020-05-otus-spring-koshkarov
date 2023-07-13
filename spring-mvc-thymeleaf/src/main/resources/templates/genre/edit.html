@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Edit genre</title>
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        .header {
+            padding: 6px;
+            font-size: larger;
+        }
+
+        .row {
+            padding: 6px;
+            font-size: large;
+        }
+
+        label {
+            display: inline-flex;
+            width: 60px;
+        }
+
+        .id {
+            background-color: #c7c7c7;
+        }
+
+        .save {
+            margin-top: 4px;
+            margin-right: 4px;
+            margin-left: 6px;
+            font-size: medium;
+        }
+
+        .cancel {
+            margin-top: 4px;
+            margin-left: 4px;
+            font-size: medium;
+        }
+    </style>
+</head>
+
+<body>
+    <form th:method="post" th:action="@{/library/genre/edit(id=${genre.id})}">
+        <div class="header">Editing genre</div>
+
+        <div class="row">
+            <label>ID:</label>
+            <input class="id" type="text" readonly="readonly" th:value="${genre.id}" value="1"/>
+        </div>
+
+        <div class="row">
+            <label>Name:</label>
+            <input name="name" type="text" th:value="${genre.name}" value="John Doe"/>
+        </div>
+
+        <div>
+            <button class="save" type="submit" name="save">Save</button>
+            <button class="cancel" type="submit" name="cancel">Cancel</button>
+        </div>
+    </form>
+</body>
+</html>
