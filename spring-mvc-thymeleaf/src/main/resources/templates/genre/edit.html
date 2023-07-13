@@ -2,7 +2,7 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Edit genre</title>
+    <title>Genre editing</title>
     <style>
         body {
             padding: 20px;
@@ -19,16 +19,21 @@
         }
 
         label {
-            display: inline-flex;
+            display: inline-block;
             width: 60px;
         }
 
-        .id {
+        #id-input {
             background-color: #c7c7c7;
+            font-size: medium;
+        }
+
+        #genre-input {
+            font-size: medium;
         }
 
         .save {
-            margin-top: 4px;
+            margin-top: 6px;
             margin-right: 4px;
             margin-left: 6px;
             font-size: medium;
@@ -44,16 +49,16 @@
 
 <body>
     <form th:method="post" th:action="@{/library/genre/edit(id=${genre.id})}">
-        <div class="header">Editing genre</div>
+        <div class="header">Genre editing</div>
 
         <div class="row">
-            <label>ID:</label>
-            <input class="id" type="text" readonly="readonly" th:value="${genre.id}" value="1"/>
+            <label for="id-input">ID:</label>
+            <input id="id-input" type="text" readonly="readonly" th:value="${genre.id}" value="1"/>
         </div>
 
         <div class="row">
-            <label>Name:</label>
-            <input name="name" type="text" th:value="${genre.name}" value="John Doe"/>
+            <label for="genre-input">Name:</label>
+            <input id="genre-input" name="name" type="text" th:value="${genre.name}" value="Book genre"/>
         </div>
 
         <div>

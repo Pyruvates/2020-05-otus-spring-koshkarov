@@ -17,7 +17,7 @@ import java.util.List;
 public class AuthorController {
     private final AuthorService authorService;
 
-    @GetMapping(path = "/authors")
+    @GetMapping(path = "/author")
     public String authors(final Model authorModel) {
         List<Author> authors = authorService.getAllAuthors();
 
@@ -25,6 +25,6 @@ public class AuthorController {
 
         authorModel.addAttribute("authors", authors);
 
-        return "author/authors";
+        return "author/author";
     }
 }
