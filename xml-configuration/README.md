@@ -1,25 +1,25 @@
-Консольное приложение по проведению тестирования студентов (только вывод вопросов)
+# Console application for testing students (only questions output)
 
-Цель: создать приложение с помощью Spring IoC, чтобы познакомиться с основной функциональностью IoC, на которой строится весь Spring.
+#### Goal:
+build an application using Spring IoC to get familiar with the core IoC functionality that all of Spring is built on
 
-Результат: простое приложение, сконфигурированное XML-контекстом.
+#### Result:
+simple application configured with an XML-context
 
-Инструкция для запуска приложения:
+### Start instruction:
 
-1. Скомпилировать исходники и собрать jar-архив из корневой директории проекта `mvn clean package`
-2. Выполнить `java -jar spring-course-1.1.0-jar-with-dependencies.jar`
+1. Compile sources and build jar from project root directory `mvn clean package`
+2. Execute `java -jar spring-course-1.1.0-jar-with-dependencies.jar`
 
-Описание задание:
+### Task description:
 
-В ресурсах хранятся вопросы и различные ответы к ним в виде CSV файла (5 вопросов).
-Вопросы могут быть с выбором из нескольких вариантов или со свободным ответом - на Ваше желание и усмотрение.
-Приложение должно вывести вопросы теста из CSV-файла с возможными вариантами ответа.
+The resources store questions and various answers to them in a CSV file (5 questions).
+Questions can be with a choice of several options or with a free answer - at your desire and discretion.
+The application should output the test questions from the CSV file with possible answers
 
-Требования:
-
-1. В приложении должна присутствовать объектная модель (отдаём предпочтение объектам и классам, а не строчкам и массивам/спискам строчек). 
-2. Контекст описывается XML-файлом. 
-3. Все зависимости должны быть настроены в IoC контейнере. 
-4. Имя ресурса с вопросами (CSV-файла) необходимо захардкодить строчкой в XML-файле с контекстом. 
-5. CSV с вопросами читается именно как ресурс, а не как файл. 
-6. Весь ввод-вывод осуществляется на английском языке.
+### Requirements:
+1. The application must have an object model
+2. The context is described by an XML file 
+3. All dependencies must be configured in the IoC container 
+4. The name of the resource with questions (CSV file) must be hardcoded as a line in the XML file with the context
+5. CSV with questions is read exactly as a resource, not as a file

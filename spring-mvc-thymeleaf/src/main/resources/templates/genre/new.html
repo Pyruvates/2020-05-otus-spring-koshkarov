@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Add new genre</title>
+    <style type="text/css">
+        body {
+            padding: 20px;
+        }
+
+        .font-larger {
+            font-size: larger;
+        }
+
+        .addGenreForm {
+            margin-top: 10px;
+        }
+
+        .buttons {
+            padding-top: 10px;
+        }
+
+        .add {
+            margin-right: 4px;
+        }
+
+        .cancel {
+            margin-left: 4px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="font-larger">Adding new genre</div>
+    <form class="addGenreForm" method="post" th:action="@{/library/genre/saveNewGenre}" th:object="${genre}">
+        <label class="font-larger">Genre name</label>
+        <input type="text" th:field="*{name}"/>
+        <div class="buttons">
+            <button class="add" type="submit" name="add" style="font-size: medium;">Add</button>
+            <button class="cancel" type="submit" name="cancel" style="font-size: medium;">Cancel</button>
+        </div>
+    </form>
+</body>
+</html>
