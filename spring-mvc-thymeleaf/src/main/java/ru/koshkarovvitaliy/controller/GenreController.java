@@ -29,13 +29,13 @@ public class GenreController {
         return genresModelAndView;
     }
 
-    @GetMapping(path = "/genre/addNewGenre")
+    @GetMapping(path = "/genre/add-new-genre")
     public ModelAndView addNewGenre(@Value("genre/new.html") final ModelAndView addGenreModelAndView,
                                     @ModelAttribute("genre") final Genre genre) {
         return addGenreModelAndView;
     }
 
-    @PostMapping(path = "/genre/saveNewGenre", params = "add")
+    @PostMapping(path = "/genre/save-new-genre", params = "add")
     public ModelAndView saveNewGenre(@ModelAttribute("genre") final Genre genre) {
         Genre newGenre = genreService.saveNewGenre(genre);
 
@@ -44,7 +44,7 @@ public class GenreController {
         return new ModelAndView("redirect:/library/genre");
     }
 
-    @PostMapping(path = "/genre/saveNewGenre", params = "cancel")
+    @PostMapping(path = "/genre/save-new-genre", params = "cancel")
     public ModelAndView cancelSaveNewGenre() {
         return new ModelAndView("redirect:/library/genre");
     }

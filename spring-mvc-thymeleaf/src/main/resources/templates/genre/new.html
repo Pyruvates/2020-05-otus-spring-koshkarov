@@ -41,9 +41,11 @@
 
 <body>
     <div class="header">Adding new genre</div>
-    <form class="addGenreForm" method="post" th:action="@{/library/genre/saveNewGenre}" th:object="${genre}">
+
+    <form class="addGenreForm" method="post" th:action="@{/library/genre/save-new-genre}" th:object="${genre}">
         <label for="genre-input" class="genre">Genre name</label>
         <input id="genre-input" type="text" th:field="*{name}"/>
+
         <div class="buttons">
             <button class="add" type="submit" name="add">Add</button>
             <button class="cancel" type="submit" name="cancel">Cancel</button>
