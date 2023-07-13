@@ -10,7 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>ru.koshkarovvitaliy</groupId>
-    <artifactId>spring-boot-students-console</artifactId>
+    <artifactId>spring-boot-testing-students-console</artifactId>
 
     <properties>
         <spring-boot>2.7.5</spring-boot>
