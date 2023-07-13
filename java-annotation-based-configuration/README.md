@@ -1,18 +1,16 @@
-Приложение по проведению тестирования студентов
+# Application for students testing
 
-Цель: конфигурировать Spring-приложения современным способом, как это и делается в современном мире
+#### Goal:
+Configure Spring applications in a modern way, as it is done in the modern world
 
-Результат: готовое современное приложение на чистом Spring
+#### Result:
+ready-made modern application in pure Spring
 
-Новый функционал:
+### Task description:
+The program should ask the user for the last name and first name, ask 5 questions from the CSV file, and display the test result.
+It is carried out on the basis of the previous homework
 
-Программа должна спросить у пользователя фамилию и имя, спросить 5 вопросов из CSV-файла и вывести результат тестирования.
-Выполняется на основе предыдущего домашнего задания + функционал тестирования.
-
-Требования:
-
-1. Переписать конфигурацию в виде Java + Annotation-based конфигурации.
-2. Добавить функционал тестирования студента.
-3. Добавьте файл настроек для приложения тестирования студентов.
-4. В конфигурационный файл можно поместить путь до CSV-файла, количество правильных ответов для зачёта - на Ваше усмотрение.
-5. Ввод-вывод на английском языке.
+### Requirements:
+1. Rewrite configuration as Java + Annotation-based configuration
+2. Add `application.properties` file
+3. You can put the path to the CSV file in the configuration file, the number of correct answers for the test at your discretion
