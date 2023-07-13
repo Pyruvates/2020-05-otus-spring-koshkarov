@@ -17,10 +17,11 @@
     <modules>
         <module>xml-configuration</module>
         <module>java-annotation-based-configuration</module>
-        <module>spring-boot-students-console</module>
+        <module>spring-boot-testing-students-console</module>
         <module>jpa_hibernate</module>
         <module>spring-data-jpa</module>
         <module>spring-data-no-sql</module>
+        <module>spring-mvc-thymeleaf</module>
     </modules>
 
     <packaging>pom</packaging>
