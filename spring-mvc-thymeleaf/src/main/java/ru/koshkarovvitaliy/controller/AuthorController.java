@@ -33,8 +33,17 @@ public class AuthorController {
         return "author/new";
     }
 
-    public Author saveNewAuthor(final Author author) {
-        return author;
-//        return authorRepository.save(author);
+    @PostMapping(path = "author/save-new-author", params = "add")
+    public String saveNewAuthor(final Author author) {
+        Author newAuthor = authorService.saveNewAuthor(author);
+
+        log.info("New author has been saved {}", newAuthor);
+
+        return "redirect:/library/author";
+    }
+
+    @PostMapping(path = "author/save-new-author", params = "cancel")
+    public String cancelSaveNewAuthor(final Author author) {
+        return "redirect:/library/author";
     }
 }

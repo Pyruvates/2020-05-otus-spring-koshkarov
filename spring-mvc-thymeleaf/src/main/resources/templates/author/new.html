@@ -29,12 +29,12 @@
 <body>
     <div class="header">Adding new author</div>
 
-    <form class="addAuthorForm" th:object="${author}">
+    <form class="addAuthorForm" method="post" th:action="@{/library/author/save-new-author}">
         <label for="author-firstName-input">First name</label>
-        <input id="author-firstName-input" type="text" th:field="*{firstName}"/>
+        <input id="author-firstName-input" type="text" th:field="${author.firstName}"/>
 
         <label for="author-lastName-input">Last name</label>
-        <input id="author-lastName-input" type="text" th:field="*{lastName}"/>
+        <input id="author-lastName-input" type="text" th:field="${author.lastName}"/>
 
         <div class="buttons">
             <button class="add" type="submit" name="add">Add</button>
