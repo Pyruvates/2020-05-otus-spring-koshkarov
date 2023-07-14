@@ -13,6 +13,11 @@
             padding-bottom: 10px;
         }
 
+        .createNewAuthorBtn {
+            margin-bottom: 12px;
+            font-size: medium;
+        }
+
         .authorsTbl, .authorsTbl td {
             border: 1px solid lightgray;
             text-align: center;
@@ -25,6 +30,11 @@
 
 <body>
     <div class="header">Authors</div>
+
+    <form th:method="get" th:action="@{/library/author/add-new-author}">
+        <button class="createNewAuthorBtn">Add new author</button>
+    </form>
+
     <table class="authorsTbl">
         <thead>
             <tr>

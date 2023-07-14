@@ -19,6 +19,7 @@
         label {
             display: inline-block;
             padding-right: 6px;
+            font-size: large;
         }
 
         .buttons {
@@ -43,7 +44,7 @@
     <div class="header">Adding new genre</div>
 
     <form class="addGenreForm" method="post" th:action="@{/library/genre/save-new-genre}" th:object="${genre}">
-        <label for="genre-input" class="genre">Genre name</label>
+        <label for="genre-input" value="">Genre name</label>
         <input id="genre-input" type="text" th:field="*{name}"/>
 
         <div class="buttons">

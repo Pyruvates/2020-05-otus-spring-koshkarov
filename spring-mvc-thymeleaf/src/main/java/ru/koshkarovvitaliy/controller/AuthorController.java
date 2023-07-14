@@ -27,4 +27,14 @@ public class AuthorController {
 
         return "author/author";
     }
+
+    @GetMapping(path = "/author/add-new-author")
+    public String addNewAuthor(@ModelAttribute("author") final Author author) {
+        return "author/new";
+    }
+
+    public Author saveNewAuthor(final Author author) {
+        return author;
+//        return authorRepository.save(author);
+    }
 }
