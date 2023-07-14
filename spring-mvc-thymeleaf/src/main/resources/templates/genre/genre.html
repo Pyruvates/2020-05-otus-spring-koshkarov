@@ -3,15 +3,21 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Genres</title>
-    <style type="text/css">
+    <style>
         body {
             padding: 20px;
         }
 
-        .tableGenres, .tableGenres td {
+        .header {
+            font-size: larger;
+        }
+
+        .genresTbl, .genresTbl td {
             border: 1px solid lightgray;
             margin-top: 5px;
             margin-bottom: 5px;
+            border-collapse: separate;
+            border-spacing: 6px;
             text-align: center;
             font-size: large;
         }
@@ -20,6 +26,7 @@
             margin-top: 5px;
             margin-bottom: 5px;
             cursor: pointer;
+            font-size: medium;
         }
 
         .deleteBtn {
@@ -30,12 +37,13 @@
 </head>
 
 <body>
-    <div style="font-size: larger;">List of genres</div>
-    <form th:method="get" th:action="@{/library/genre/addNewGenre}">
-        <button class="createNewGenreBtn" style="font-size: medium;">Add new genre</button>
+    <div class="header">Genres</div>
+
+    <form th:method="get" th:action="@{/library/genre/add-new-genre}">
+        <button class="createNewGenreBtn">Add new genre</button>
     </form>
 
-    <table class="tableGenres" cellpadding="6" cellspacing="4">
+    <table class="genresTbl">
         <thead>
             <tr>
                 <th>ID</th>

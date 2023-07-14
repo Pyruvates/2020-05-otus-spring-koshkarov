@@ -17,7 +17,7 @@ import java.util.List;
 public class AuthorController {
     private final AuthorService authorService;
 
-    @GetMapping(path = "/authors")
+    @GetMapping(path = "/author")
     public String authors(final Model authorModel) {
         List<Author> authors = authorService.getAllAuthors();
 
@@ -25,6 +25,25 @@ public class AuthorController {
 
         authorModel.addAttribute("authors", authors);
 
-        return "author/authors";
+        return "author/author";
+    }
+
+    @GetMapping(path = "/author/add-new-author")
+    public String addNewAuthor(@ModelAttribute("author") final Author author) {
+        return "author/new";
+    }
+
+    @PostMapping(path = "author/save-new-author", params = "add")
+    public String saveNewAuthor(final Author author) {
+        Author newAuthor = authorService.saveNewAuthor(author);
+
+        log.info("New author has been saved {}", newAuthor);
+
+        return "redirect:/library/author";
+    }
+
+    @PostMapping(path = "author/save-new-author", params = "cancel")
+    public String cancelSaveNewAuthor(final Author author) {
+        return "redirect:/library/author";
     }
 }
