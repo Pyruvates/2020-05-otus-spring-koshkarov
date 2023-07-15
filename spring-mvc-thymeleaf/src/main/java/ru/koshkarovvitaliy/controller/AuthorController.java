@@ -35,7 +35,7 @@ public class AuthorController {
 
     @PostMapping(path = "author/save-new-author", params = "add")
     public String saveNewAuthor(final Author author) {
-        Author newAuthor = authorService.saveNewAuthor(author);
+        Author newAuthor = authorService.saveAuthor(author);
 
         log.info("New author has been saved {}", newAuthor);
 
@@ -56,5 +56,21 @@ public class AuthorController {
         editModel.addAttribute("author", author);
 
         return "author/edit";
+    }
+
+    @PostMapping(path = "author/edit", params = "save")
+    public String saveEditedAuthor(final Author author) {
+        Author editedAuthor = authorService.saveAuthor(author);
+
+        log.info("Saved author after edit {}", editedAuthor);
+
+        return "redirect:/library/author";
+    }
+
+    @PostMapping(path = "author/edit", params = "cancel")
+    public String cancelSaveEditedAuthor(final Author author) {
+        log.info("Cancel edit {}", author);
+
+        return "redirect:/library/author";
     }
 }
