@@ -12,9 +12,21 @@
             font-size: larger;
         }
 
+        .linkToMainPage {
+            margin-top: 6px;
+            margin-bottom: 12px;
+            font-size: large;
+        }
+
+        .createNewGenreBtn {
+            margin-bottom: 10px;
+            cursor: pointer;
+            font-size: medium;
+        }
+
         .genresTbl, .genresTbl td {
             border: 1px solid lightgray;
-            margin-top: 5px;
+            margin-top: 6px;
             margin-bottom: 5px;
             border-collapse: separate;
             border-spacing: 6px;
@@ -29,13 +41,6 @@
             padding-bottom: 4px;
         }
 
-        .createNewGenreBtn {
-            margin-top: 5px;
-            margin-bottom: 5px;
-            cursor: pointer;
-            font-size: medium;
-        }
-
         .deleteBtn {
             font-size: medium;
             cursor: pointer;
@@ -45,6 +50,10 @@
 
 <body>
     <div class="header">Genres</div>
+
+    <div class="linkToMainPage">
+        <a href="../library" th:href="@{/library}">To main page</a>
+    </div>
 
     <form th:method="get" th:action="@{/library/genre/add-new-genre}">
         <button class="createNewGenreBtn">Add new genre</button>
@@ -62,7 +71,7 @@
         <tbody>
             <tr th:each="genre : ${genres}">
                 <td th:text="${genre.id}">1</td>
-                <td th:text="${genre.name}">Book title</td>
+                <td th:text="${genre.name}">Genre name</td>
                 <td>
                     <a th:href="@{/library/genre/edit(id=${genre.id})}" href="edit.html">Edit</a>
                 </td>

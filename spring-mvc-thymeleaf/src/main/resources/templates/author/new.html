@@ -44,12 +44,12 @@
     <form class="addAuthorForm" method="post" th:action="@{/library/author/save-new-author}">
         <div class="row">
             <label for="author-firstName-input">First name</label>
-            <input id="author-firstName-input" type="text" th:field="${author.firstName}"/>
+            <input id="author-firstName-input" type="text" value="First name" th:field="${author.firstName}"/>
         </div>
 
         <div class="row">
             <label for="author-lastName-input">Last name</label>
-            <input id="author-lastName-input" type="text" th:field="${author.lastName}"/>
+            <input id="author-lastName-input" type="text" value="Last name" th:field="${author.lastName}"/>
         </div>
 
         <div class="buttons">

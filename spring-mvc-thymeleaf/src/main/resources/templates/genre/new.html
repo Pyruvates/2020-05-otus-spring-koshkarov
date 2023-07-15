@@ -45,7 +45,7 @@
 
     <form class="addGenreForm" method="post" th:action="@{/library/genre/save-new-genre}" th:object="${genre}">
         <label for="genre-input" value="">Genre name</label>
-        <input id="genre-input" type="text" th:field="*{name}"/>
+        <input id="genre-input" type="text" value="Name" th:field="*{name}"/>
 
         <div class="buttons">
             <button class="add" type="submit" name="add">Add</button>
