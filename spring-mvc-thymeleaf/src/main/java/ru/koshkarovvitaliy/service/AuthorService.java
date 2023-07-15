@@ -24,4 +24,8 @@ public class AuthorService {
     public Author getAuthorById(final Integer id) {
         return authorRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
+
+    public void deleteAuthorById(final Integer id) {
+        authorRepository.deleteById(id);
+    }
 }

@@ -43,7 +43,7 @@ public class AuthorController {
     }
 
     @PostMapping(path = "author/save-new-author", params = "cancel")
-    public String cancelSaveNewAuthor(final Author author) {
+    public String cancelSaveNewAuthor() {
         return "redirect:/library/author";
     }
 
@@ -70,6 +70,17 @@ public class AuthorController {
     @PostMapping(path = "author/edit", params = "cancel")
     public String cancelSaveEditedAuthor(final Author author) {
         log.info("Cancel edit {}", author);
+
+        return "redirect:/library/author";
+    }
+
+    @PostMapping(path = "author/delete")
+    public String deleteAuthor(@RequestParam("id") final Integer id) {
+        Author author = authorService.getAuthorById(id);
+
+        authorService.deleteAuthorById(id);
+
+        log.info("{} has been deleted", author);
 
         return "redirect:/library/author";
     }
