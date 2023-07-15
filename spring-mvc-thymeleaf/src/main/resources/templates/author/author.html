@@ -41,6 +41,7 @@
                 <th>ID</th>
                 <th>First name</th>
                 <th>Last name</th>
+                <th>Edit action</th>
             </tr>
         </thead>
         <tbody>
@@ -48,6 +49,9 @@
                 <td th:text="${author.id}">1</td>
                 <td th:text="${author.firstName}">First name</td>
                 <td th:text="${author.lastName}">Last name</td>
+                <td>
+                    <a href="edit.html" th:href="@{/library/author/edit(id=${author.id})}">Edit</a>
+                </td>
             </tr>
         </tbody>
     </table>
