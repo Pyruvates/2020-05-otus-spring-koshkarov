@@ -12,16 +12,28 @@
             font-size: large;
         }
 
-        label {
-            display: block;
+        .row {
             margin-top: 10px;
-            margin-bottom: 4px;
+            margin-bottom: 10px;
             font-size: large;
+        }
+
+        label {
+            display: inline-block;
+            width: 80px;
+        }
+
+        input {
+            font-size: medium;
         }
 
         button {
             font-size: medium;
-            margin-top: 10px;
+            margin-top: 4px;
+        }
+
+        .add {
+            margin-right: 6px;
         }
     </style>
 </head>
@@ -30,11 +42,15 @@
     <div class="header">Adding new author</div>
 
     <form class="addAuthorForm" method="post" th:action="@{/library/author/save-new-author}">
-        <label for="author-firstName-input">First name</label>
-        <input id="author-firstName-input" type="text" th:field="${author.firstName}"/>
+        <div class="row">
+            <label for="author-firstName-input">First name</label>
+            <input id="author-firstName-input" type="text" th:field="${author.firstName}"/>
+        </div>
 
-        <label for="author-lastName-input">Last name</label>
-        <input id="author-lastName-input" type="text" th:field="${author.lastName}"/>
+        <div class="row">
+            <label for="author-lastName-input">Last name</label>
+            <input id="author-lastName-input" type="text" th:field="${author.lastName}"/>
+        </div>
 
         <div class="buttons">
             <button class="add" type="submit" name="add">Add</button>

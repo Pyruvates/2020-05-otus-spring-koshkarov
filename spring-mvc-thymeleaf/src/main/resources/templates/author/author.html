@@ -16,6 +16,7 @@
         .createNewAuthorBtn {
             margin-bottom: 12px;
             font-size: medium;
+            cursor: pointer;
         }
 
         .authorsTbl, .authorsTbl td {
@@ -24,6 +25,18 @@
             border-collapse: separate;
             border-spacing: 6px;
             font-size: large;
+        }
+
+        td {
+            padding-left: 6px;
+            padding-right: 6px;
+            padding-top: 4px;
+            padding-bottom: 4px;
+        }
+
+        button {
+            cursor: pointer;
+            font-size: medium;
         }
     </style>
 </head>
@@ -41,6 +54,8 @@
                 <th>ID</th>
                 <th>First name</th>
                 <th>Last name</th>
+                <th>Edit action</th>
+                <th>Delete action</th>
             </tr>
         </thead>
         <tbody>
@@ -48,6 +63,14 @@
                 <td th:text="${author.id}">1</td>
                 <td th:text="${author.firstName}">First name</td>
                 <td th:text="${author.lastName}">Last name</td>
+                <td>
+                    <a href="edit.html" th:href="@{/library/author/edit(id=${author.id})}">Edit</a>
+                </td>
+                <td>
+                    <form th:method="delete" th:action="@{/library/author/delete(id=${author.id})}">
+                        <button class="deleteBtn" type="submit">Delete</button>
+                    </form>
+                </td>
             </tr>
         </tbody>
     </table>

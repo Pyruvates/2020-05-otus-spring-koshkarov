@@ -17,15 +17,15 @@ public class GenreService {
         return genreRepository.findAll();
     }
 
-    public Genre saveNewGenre(final Genre genre) {
+    public Genre saveGenre(final Genre genre) {
         return genreRepository.save(genre);
     }
 
-    public Genre findById(final Integer id) {
+    public Genre getGenreById(final Integer id) {
         return genreRepository.findById(id).orElseThrow(EntityNotFoundException::new);
     }
 
-    public void deleteGenre(final Integer id) {
+    public void deleteGenreById(final Integer id) {
         genreRepository.deleteById(id);
     }
 }

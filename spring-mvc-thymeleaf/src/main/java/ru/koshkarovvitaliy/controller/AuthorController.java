@@ -12,12 +12,12 @@ import java.util.List;
 
 @Controller
 @Slf4j
-@RequestMapping(path = "/library")
+@RequestMapping(path = "library")
 @AllArgsConstructor
 public class AuthorController {
     private final AuthorService authorService;
 
-    @GetMapping(path = "/author")
+    @GetMapping(path = "author")
     public String authors(final Model authorModel) {
         List<Author> authors = authorService.getAllAuthors();
 
@@ -28,14 +28,14 @@ public class AuthorController {
         return "author/author";
     }
 
-    @GetMapping(path = "/author/add-new-author")
+    @GetMapping(path = "author/add-new-author")
     public String addNewAuthor(@ModelAttribute("author") final Author author) {
         return "author/new";
     }
 
     @PostMapping(path = "author/save-new-author", params = "add")
     public String saveNewAuthor(final Author author) {
-        Author newAuthor = authorService.saveNewAuthor(author);
+        Author newAuthor = authorService.saveAuthor(author);
 
         log.info("New author has been saved {}", newAuthor);
 
@@ -43,7 +43,45 @@ public class AuthorController {
     }
 
     @PostMapping(path = "author/save-new-author", params = "cancel")
-    public String cancelSaveNewAuthor(final Author author) {
+    public String cancelSaveNewAuthor() {
+        return "redirect:/library/author";
+    }
+
+    @GetMapping(path = "author/edit")
+    public String editAuthor(final Model editModel, @RequestParam("id") final Integer id) {
+        Author author = authorService.getAuthorById(id);
+
+        log.info("Author found by id {}", author);
+
+        editModel.addAttribute("author", author);
+
+        return "author/edit";
+    }
+
+    @PostMapping(path = "author/edit", params = "save")
+    public String saveEditedAuthor(final Author author) {
+        Author editedAuthor = authorService.saveAuthor(author);
+
+        log.info("Saved author after edit {}", editedAuthor);
+
+        return "redirect:/library/author";
+    }
+
+    @PostMapping(path = "author/edit", params = "cancel")
+    public String cancelSaveEditedAuthor(final Author author) {
+        log.info("Cancel edit {}", author);
+
+        return "redirect:/library/author";
+    }
+
+    @PostMapping(path = "author/delete")
+    public String deleteAuthor(@RequestParam("id") final Integer id) {
+        Author author = authorService.getAuthorById(id);
+
+        authorService.deleteAuthorById(id);
+
+        log.info("{} has been deleted", author);
+
         return "redirect:/library/author";
     }
 }

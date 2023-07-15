@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Author editing</title>
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        .header {
+            font-size: large;
+        }
+
+        .row {
+            margin-top: 10px;
+            font-size: large;
+        }
+
+        label {
+            display: inline-block;
+            width: 90px;
+        }
+
+        input {
+            font-size: medium;
+        }
+
+        #id-input {
+            background-color: #c7c7c7;
+        }
+
+        button {
+            margin-top: 12px;
+            font-size: medium;
+        }
+
+        .save {
+            margin-right: 8px;
+        }
+    </style>
+</head>
+
+<body>
+    <form th:method="post" th:action="@{/library/author/edit(id=${author.id})}">
+        <div class="header">Author editing</div>
+
+        <div class="row">
+            <label for="id-input">ID:</label>
+            <input id="id-input" type="text" readonly="readonly" th:value="${author.id}" value="1"/>
+        </div>
+
+        <div class="row">
+            <label for="firstName-input">First name:</label>
+            <input id="firstName-input" name="firstName" type="text" th:value="${author.firstName}" value="First name"/>
+        </div>
+
+        <div class="row">
+            <label for="lastName-input">First name:</label>
+            <input id="lastName-input" name="lastName" type="text" th:value="${author.lastName}" value="Last name"/>
+        </div>
+
+        <div>
+            <button class="save" type="submit" name="save">Save</button>
+            <button class="cancel" type="submit" name="cancel">Cancel</button>
+        </div>
+    </form>
+</body>
+</html>

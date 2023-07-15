@@ -37,7 +37,7 @@ public class GenreController {
 
     @PostMapping(path = "/genre/save-new-genre", params = "add")
     public ModelAndView saveNewGenre(@ModelAttribute("genre") final Genre genre) {
-        Genre newGenre = genreService.saveNewGenre(genre);
+        Genre newGenre = genreService.saveGenre(genre);
 
         log.info("Saved genre {}", newGenre);
 
@@ -52,7 +52,7 @@ public class GenreController {
     @GetMapping(path = "genre/edit")
     public ModelAndView editGenre(@Value("genre/edit.html") final ModelAndView editModelAndView,
                                   @RequestParam("id") final Integer id) {
-        Genre genre = genreService.findById(id);
+        Genre genre = genreService.getGenreById(id);
 
         log.info("Genre found by id {}", genre);
 
@@ -63,7 +63,7 @@ public class GenreController {
 
     @PostMapping(path = "genre/edit", params = "save")
     public ModelAndView saveEditedGenre(@ModelAttribute("genre") final Genre genre) {
-        Genre editedGenre = genreService.saveNewGenre(genre);
+        Genre editedGenre = genreService.saveGenre(genre);
 
         log.info("Saved genre after edit {}", editedGenre);
 
@@ -79,9 +79,11 @@ public class GenreController {
 
     @PostMapping(path = "genre/delete")
     public ModelAndView deleteGenre(@RequestParam("id") final Integer id) {
-        genreService.deleteGenre(id);
+        Genre genre = genreService.getGenreById(id);
 
-        log.info("Genre with id {} has been deleted", id);
+        genreService.deleteGenreById(id);
+
+        log.info("{} has been deleted", genre);
 
         return new ModelAndView("redirect:/library/genre");
     }
