@@ -20,16 +20,20 @@
 
         label {
             display: inline-block;
-            width: 60px;
+            width: 150px;
         }
 
         #id-input {
             background-color: #c7c7c7;
+        }
+
+        input {
             font-size: medium;
+            width: 300px;
         }
 
         #book-input {
-            font-size: medium;
+            width: 800px;
         }
 
         .save {
@@ -59,6 +63,18 @@
         <div class="row">
             <label for="book-input">Name:</label>
             <input id="book-input" name="name" type="text" th:value="${book.name}" value="Book name"/>
+        </div>
+        <div class="row">
+            <label for="author-firstname-input">Author's firstname:</label>
+            <input id="author-firstname-input" name="name" type="text" th:value="${book.name}" value="Author's firstname"/>
+        </div>
+        <div class="row">
+            <label for="author-lastname-input">Author's lastname:</label>
+            <input id="author-lastname-input" name="name" type="text" th:value="${book.name}" value="Author's lastname"/>
+        </div>
+        <div class="row">
+            <label for="genre-input">Genre:</label>
+            <input id="genre-input" name="name" type="text" th:value="${book.name}" value="Genre"/>
         </div>
 
         <div>

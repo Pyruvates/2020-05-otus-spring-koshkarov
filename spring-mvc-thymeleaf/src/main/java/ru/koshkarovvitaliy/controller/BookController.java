@@ -30,7 +30,6 @@ public class BookController {
 
     @GetMapping(path = "/book/add-new-book")
     public String addNewBook(@ModelAttribute("book") final Book book) {
-//        TODO: add implementation
         log.info("Adding new book");
         return "book/new";
     }
@@ -44,8 +43,6 @@ public class BookController {
 
     @PostMapping(path = "/book/save-new-book", params = "cancel")
     public String cancelSaveNewBook() {
-//        TODO: add implementation
-        log.info("Cancel save new book");
         return "redirect:/library/book";
     }
 
@@ -69,8 +66,6 @@ public class BookController {
 
     @PostMapping(path = "book/edit", params = "cancel")
     public String cancelSaveEditedBook() {
-//        TODO: add implementation
-        log.info("Cancel save edited book");
         return "redirect:/library/book";
     }
 
