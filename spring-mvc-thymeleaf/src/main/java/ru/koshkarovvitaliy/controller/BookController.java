@@ -17,6 +17,7 @@ import java.util.List;
 @Slf4j
 public class BookController {
     private final BookService bookService;
+
     @GetMapping(path = "/book")
     public String getAllBooks(final Model bookModel) {
         List<Book> books = bookService.getAllBooks();

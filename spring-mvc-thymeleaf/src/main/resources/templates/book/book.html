@@ -52,7 +52,7 @@
     <div class="header">Books</div>
 
     <div class="linkToMainPage">
-        <a href="../library/library.html" th:action="@{/library}">To main page</a>
+        <a href="../library/library.html" th:href="@{/library}">To main page</a>
     </div>
 
     <form>
@@ -63,15 +63,19 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Action edit</th>
-                <th>Action delete</th>
+                <th style="width: 40%;">Name</th>
+                <th>Author</th>
+                <th>Genre</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="book : ${books}">
                 <td th:text="${book.id}">1</td>
                 <td th:text="${book.name}">Book name</td>
+                <td th:text="${book.author.firstName + ' ' + book.author.lastName}">Author</td>
+                <td th:text="${book.genre.name}">Genre</td>
                 <td>
                     <a>Edit</a>
                 </td>
