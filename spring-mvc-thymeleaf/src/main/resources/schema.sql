@@ -12,6 +12,6 @@ CREATE TABLE authors (
 CREATE TABLE books(
     id SERIAL PRIMARY KEY,
     name VARCHAR(255),
-    author_id int references authors(id) ON DELETE CASCADE,
-    genre_id int references genres(id) ON DELETE CASCADE
+    author_id int references authors(id),
+    genre_id int references genres(id)
 );

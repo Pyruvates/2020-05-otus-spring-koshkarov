@@ -51,7 +51,7 @@ public class AuthorController {
     public String editAuthor(final Model editModel, @RequestParam("id") final Integer id) {
         Author author = authorService.getAuthorById(id);
 
-        log.info("Author found by id {}", author);
+        log.info("Found {}", author);
 
         editModel.addAttribute("author", author);
 

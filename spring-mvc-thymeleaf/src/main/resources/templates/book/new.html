@@ -1,10 +1,10 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Adding new genre</title>
+    <title>Adding new book</title>
     <style>
-        body {
+      body {
             padding: 20px;
         }
 
@@ -12,7 +12,7 @@
             font-size: larger;
         }
 
-        .addGenreForm {
+        .addBookForm {
             margin-top: 10px;
         }
 
@@ -41,11 +41,11 @@
 </head>
 
 <body>
-    <div class="header">Adding new genre</div>
+    <div class="header">Adding new book</div>
 
-    <form class="addGenreForm" method="post" th:action="@{/library/genre/save-new-genre}" th:object="${genre}">
-        <label for="genre-input" value="">Genre name</label>
-        <input id="genre-input" type="text" value="Name" th:field="*{name}"/>
+    <form class="addBookForm" th:object="${book}" th:method="post" th:action="@{/library/book/save-new-book}">
+        <label for="book-input" value="">Book name</label>
+        <input id="book-input" type="text" value="Book name" th:field="*{name}"/>
 
         <div class="buttons">
             <button class="add" type="submit" name="add">Add</button>

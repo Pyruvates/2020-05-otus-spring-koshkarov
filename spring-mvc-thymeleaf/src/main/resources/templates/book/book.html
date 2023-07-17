@@ -55,7 +55,7 @@
         <a href="../library/library.html" th:href="@{/library}">To main page</a>
     </div>
 
-    <form>
+    <form action="new.html" th:method="get" th:action="@{/library/book/add-new-book}" >
         <button class="addNewBookBtn">Add new book</button>
     </form>
 
@@ -77,10 +77,10 @@
                 <td th:text="${book.author.firstName + ' ' + book.author.lastName}">Author</td>
                 <td th:text="${book.genre.name}">Genre</td>
                 <td>
-                    <a>Edit</a>
+                    <a href="edit.html" th:href="@{/library/book/edit(id=${book.id})}">Edit</a>
                 </td>
                 <td>
-                    <form>
+                    <form th:method="delete" th:action="@{/library/book/delete(id=${book.id})}">
                         <button class="deleteBtn" type="submit">Delete</button>
                     </form>
                 </td>

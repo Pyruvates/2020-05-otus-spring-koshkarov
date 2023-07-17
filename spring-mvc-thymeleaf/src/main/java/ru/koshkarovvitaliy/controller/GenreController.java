@@ -54,7 +54,7 @@ public class GenreController {
                                   @RequestParam("id") final Integer id) {
         Genre genre = genreService.getGenreById(id);
 
-        log.info("Genre found by id {}", genre);
+        log.info("Found {}", genre);
 
         editModelAndView.addObject("genre", genre);
 
