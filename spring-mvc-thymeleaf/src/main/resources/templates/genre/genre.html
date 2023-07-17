@@ -18,7 +18,7 @@
             font-size: large;
         }
 
-        .createNewGenreBtn {
+        .addNewGenreBtn {
             margin-bottom: 10px;
             cursor: pointer;
             font-size: medium;
@@ -52,11 +52,11 @@
     <div class="header">Genres</div>
 
     <div class="linkToMainPage">
-        <a href="../library" th:href="@{/library}">To main page</a>
+        <a href="../library/library.html" th:href="@{/library}">To main page</a>
     </div>
 
     <form th:method="get" th:action="@{/library/genre/add-new-genre}">
-        <button class="createNewGenreBtn">Add new genre</button>
+        <button class="addNewGenreBtn">Add new genre</button>
     </form>
 
     <table class="genresTbl">

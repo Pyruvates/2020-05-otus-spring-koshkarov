@@ -1,8 +1,8 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Authors</title>
+    <title>Books</title>
     <style>
         body {
             padding: 20px;
@@ -18,17 +18,19 @@
             font-size: large;
         }
 
-        .addNewAuthorBtn {
-            margin-bottom: 16px;
-            font-size: medium;
+        .addNewBookBtn {
+            margin-bottom: 10px;
             cursor: pointer;
+            font-size: medium;
         }
 
-        .authorsTbl, .authorsTbl td {
+        .booksTbl, .booksTbl td {
             border: 1px solid lightgray;
-            text-align: center;
+            margin-top: 6px;
+            margin-bottom: 5px;
             border-collapse: separate;
             border-spacing: 6px;
+            text-align: center;
             font-size: large;
         }
 
@@ -39,44 +41,42 @@
             padding-bottom: 4px;
         }
 
-        button {
-            cursor: pointer;
+        .deleteBtn {
             font-size: medium;
+            cursor: pointer;
         }
     </style>
 </head>
 
 <body>
-    <div class="header">Authors</div>
+    <div class="header">Books</div>
 
     <div class="linkToMainPage">
-        <a href="../library/library.html" th:href="@{/library}">To main page</a>
+        <a href="../library/library.html" th:action="@{/library}">To main page</a>
     </div>
 
-    <form th:method="get" th:action="@{/library/author/add-new-author}">
-        <button class="addNewAuthorBtn">Add new author</button>
+    <form>
+        <button class="addNewBookBtn">Add new book</button>
     </form>
 
-    <table class="authorsTbl">
+    <table class="booksTbl">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Edit action</th>
-                <th>Delete action</th>
+                <th>Name</th>
+                <th>Action edit</th>
+                <th>Action delete</th>
             </tr>
         </thead>
         <tbody>
-            <tr th:each="author : ${authors}">
-                <td th:text="${author.id}">1</td>
-                <td th:text="${author.firstName}">First name</td>
-                <td th:text="${author.lastName}">Last name</td>
+            <tr th:each="book : ${books}">
+                <td th:text="${book.id}">1</td>
+                <td th:text="${book.name}">Book name</td>
                 <td>
-                    <a href="edit.html" th:href="@{/library/author/edit(id=${author.id})}">Edit</a>
+                    <a>Edit</a>
                 </td>
                 <td>
-                    <form th:method="delete" th:action="@{/library/author/delete(id=${author.id})}">
+                    <form>
                         <button class="deleteBtn" type="submit">Delete</button>
                     </form>
                 </td>

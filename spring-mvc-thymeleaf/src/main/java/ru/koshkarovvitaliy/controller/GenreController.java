@@ -19,7 +19,7 @@ public class GenreController {
     private final GenreService genreService;
 
     @GetMapping(path = "/genre")
-    public ModelAndView genres(@Value("genre/genre.html") final ModelAndView genresModelAndView) {
+    public ModelAndView getAllGenres(@Value("genre/genre.html") final ModelAndView genresModelAndView) {
         List<Genre> genres = genreService.getAllGenres();
 
         log.info("All genres {}", genres);

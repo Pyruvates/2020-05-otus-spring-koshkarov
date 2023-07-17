@@ -18,7 +18,7 @@ public class AuthorController {
     private final AuthorService authorService;
 
     @GetMapping(path = "author")
-    public String authors(final Model authorModel) {
+    public String getAllAuthors(final Model authorModel) {
         List<Author> authors = authorService.getAllAuthors();
 
         log.info("All authors {}", authors);
