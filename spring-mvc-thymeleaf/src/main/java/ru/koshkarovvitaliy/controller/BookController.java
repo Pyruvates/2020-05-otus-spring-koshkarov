@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.koshkarovvitaliy.model.Book;
+import ru.koshkarovvitaliy.model.BookDTO;
 import ru.koshkarovvitaliy.service.BookService;
 
 import java.util.List;
@@ -20,7 +21,6 @@ public class BookController {
     @GetMapping(path = "/book")
     public String getAllBooks(final Model bookModel) {
         List<Book> books = bookService.getAllBooks();
-
         log.info("All books {}", books);
 
         bookModel.addAttribute("books", books);
@@ -49,7 +49,6 @@ public class BookController {
     @GetMapping(path = "/book/edit")
     public String editBook(final Model editModel, @RequestParam("id") final Integer id) {
         Book book = bookService.getBookById(id);
-
         log.info("Found {}", book);
 
         editModel.addAttribute("book", book);
@@ -58,9 +57,16 @@ public class BookController {
     }
 
     @PostMapping(path = "book/edit", params = "save")
-    public String saveEditedBook() {
-//        TODO: add implementation
-        log.info("Save edited book");
+    public String saveEditedBook(@RequestParam("id") final Integer bookId,
+                                 @RequestParam("bookName") final String bookName,
+                                 @RequestParam("authorFirstName") final String authorFName,
+                                 @RequestParam("authorLastName") final String authorLName,
+                                 @RequestParam("genreName") final String genreName) {
+        BookDTO bookDTO = new BookDTO(bookId, bookName, authorFName, authorLName, genreName);
+        log.info("Passed parameters: {}", bookDTO);
+
+        bookService.saveBook(bookDTO);
+
         return "redirect:/library/book";
     }
 

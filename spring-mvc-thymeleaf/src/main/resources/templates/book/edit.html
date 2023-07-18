@@ -29,11 +29,7 @@
 
         input {
             font-size: medium;
-            width: 300px;
-        }
-
-        #book-input {
-            width: 800px;
+            width: 50%;
         }
 
         .save {
@@ -52,29 +48,29 @@
 </head>
 
 <body>
-    <form th:method="post" th:action="@{/library/book/edit(id=${book.id})}">
+    <form th:object="${book}" th:method="post" th:action="@{/library/book/edit(id=${book.id})}">
         <div class="header">Book editing</div>
 
         <div class="row">
             <label for="id-input">ID:</label>
-            <input id="id-input" type="text" readonly="readonly" th:value="${book.id}" value="1"/>
+            <input id="id-input" type="text" readonly="readonly" th:value="*{id}" value="1"/>
         </div>
 
         <div class="row">
             <label for="book-input">Name:</label>
-            <input id="book-input" name="name" type="text" th:value="${book.name}" value="Book name"/>
+            <input id="book-input" type="text" name="bookName" th:value="*{name}" value="Book name"/>
         </div>
         <div class="row">
             <label for="author-firstname-input">Author's firstname:</label>
-            <input id="author-firstname-input" name="name" type="text" th:value="${book.name}" value="Author's firstname"/>
+            <input id="author-firstname-input" type="text" name="authorFirstName" th:value="*{author.firstName}" value="Author's firstname"/>
         </div>
         <div class="row">
             <label for="author-lastname-input">Author's lastname:</label>
-            <input id="author-lastname-input" name="name" type="text" th:value="${book.name}" value="Author's lastname"/>
+            <input id="author-lastname-input" type="text" name="authorLastName" th:value="*{author.lastName}" value="Author's lastname"/>
         </div>
         <div class="row">
             <label for="genre-input">Genre:</label>
-            <input id="genre-input" name="name" type="text" th:value="${book.name}" value="Genre"/>
+            <input id="genre-input" type="text" name="genreName" th:value="*{genre.name}" value="Genre"/>
         </div>
 
         <div>
