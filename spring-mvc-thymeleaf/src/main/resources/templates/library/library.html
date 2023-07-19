@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Library</title>
+    <style>
+        body {
+            padding: 20px;
+        }
+
+        h2 {
+            margin-top: 0px;
+            margin-bottom: 16px;
+        }
+
+        .sections {
+            font-size: large;
+        }
+
+        ul {
+            font-size: large;
+            line-height: 150%;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Library</h2>
+    <div class="sections">Sections:</div>
+
+    <ul>
+        <li>
+            <a href="../genre/genre.html" th:href="@{library/genre}">Genres</a>
+        </li>
+        <li>
+            <a href="../author/author.html" th:href="@{library/author}">Authors</a>
+        </li>
+        <li>
+            <a href="../book/book.html" th:href="@{library/book}">Books</a>
+        </li>
+    </ul>
+</body>
+</html>

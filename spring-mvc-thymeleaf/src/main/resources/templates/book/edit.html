@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Book editing</title>
+    <style>
+      body {
+            padding: 20px;
+        }
+
+        .header {
+            padding: 6px;
+            font-size: larger;
+        }
+
+        .row {
+            padding: 6px;
+            font-size: large;
+        }
+
+        label {
+            display: inline-block;
+            width: 150px;
+        }
+
+        #id-input {
+            background-color: #c7c7c7;
+        }
+
+        input {
+            font-size: medium;
+            width: 50%;
+        }
+
+        .save {
+            margin-top: 6px;
+            margin-right: 4px;
+            margin-left: 6px;
+            font-size: medium;
+        }
+
+        .cancel {
+            margin-top: 4px;
+            margin-left: 4px;
+            font-size: medium;
+        }
+    </style>
+</head>
+
+<body>
+    <form th:object="${book}" th:method="post" th:action="@{/library/book/edit(id=${book.id})}">
+        <div class="header">Book editing</div>
+
+        <div class="row">
+            <label for="id-input">ID:</label>
+            <input id="id-input" type="text" readonly="readonly" th:value="*{id}" value="1"/>
+        </div>
+
+        <div class="row">
+            <label for="book-input">Name:</label>
+            <input id="book-input" type="text" name="bookName" th:value="*{name}" value="Book name"/>
+        </div>
+        <div class="row">
+            <label for="author-firstname-input">Author's firstname:</label>
+            <input id="author-firstname-input" type="text" name="authorFirstName" th:value="*{author.firstName}" value="Author's firstname"/>
+        </div>
+        <div class="row">
+            <label for="author-lastname-input">Author's lastname:</label>
+            <input id="author-lastname-input" type="text" name="authorLastName" th:value="*{author.lastName}" value="Author's lastname"/>
+        </div>
+        <div class="row">
+            <label for="genre-input">Genre:</label>
+            <input id="genre-input" type="text" name="genreName" th:value="*{genre.name}" value="Genre"/>
+        </div>
+
+        <div>
+            <button class="save" type="submit" name="save">Save</button>
+            <button class="cancel" type="submit" name="cancel">Cancel</button>
+        </div>
+    </form>
+</body>
+</html>

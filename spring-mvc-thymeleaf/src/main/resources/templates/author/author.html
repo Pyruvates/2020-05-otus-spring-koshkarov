@@ -10,11 +10,16 @@
 
         .header {
             font-size: larger;
-            padding-bottom: 10px;
         }
 
-        .createNewAuthorBtn {
+        .linkToMainPage {
+            margin-top: 6px;
             margin-bottom: 12px;
+            font-size: large;
+        }
+
+        .addNewAuthorBtn {
+            margin-bottom: 16px;
             font-size: medium;
             cursor: pointer;
         }
@@ -44,18 +49,22 @@
 <body>
     <div class="header">Authors</div>
 
-    <form th:method="get" th:action="@{/library/author/add-new-author}">
-        <button class="createNewAuthorBtn">Add new author</button>
+    <div class="linkToMainPage">
+        <a href="../library/library.html" th:href="@{/library}">To main page</a>
+    </div>
+
+    <form action="new.html" th:method="get" th:action="@{/library/author/add-new-author}">
+        <button class="addNewAuthorBtn">Add new author</button>
     </form>
 
     <table class="authorsTbl">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>First name</th>
-                <th>Last name</th>
-                <th>Edit action</th>
-                <th>Delete action</th>
+                <th style="width: 30%;">First name</th>
+                <th style="width: 30%;">Last name</th>
+                <th></th>
+                <th></th>
             </tr>
         </thead>
         <tbody>

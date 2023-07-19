@@ -1,8 +1,8 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Genres</title>
+    <title>Books</title>
     <style>
         body {
             padding: 20px;
@@ -18,13 +18,13 @@
             font-size: large;
         }
 
-        .addNewGenreBtn {
+        .addNewBookBtn {
             margin-bottom: 10px;
             cursor: pointer;
             font-size: medium;
         }
 
-        .genresTbl, .genresTbl td {
+        .booksTbl, .booksTbl td {
             border: 1px solid lightgray;
             margin-top: 6px;
             margin-bottom: 5px;
@@ -49,34 +49,38 @@
 </head>
 
 <body>
-    <div class="header">Genres</div>
+    <div class="header">Books</div>
 
     <div class="linkToMainPage">
         <a href="../library/library.html" th:href="@{/library}">To main page</a>
     </div>
 
-    <form action="new.html" th:method="get" th:action="@{/library/genre/add-new-genre}">
-        <button class="addNewGenreBtn">Add new genre</button>
+    <form action="new.html" th:method="get" th:action="@{/library/book/add-new-book}" >
+        <button class="addNewBookBtn">Add new book</button>
     </form>
 
-    <table class="genresTbl">
+    <table class="booksTbl">
         <thead>
             <tr>
                 <th>ID</th>
                 <th style="width: 40%;">Name</th>
+                <th><a href="../author/author.html" th:href="@{/library/author}">Author</a></th>
+                <th><a href="../genre/genre.html" th:href="@{/library/genre}">Genre</a></th>
                 <th></th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            <tr th:each="genre : ${genres}">
-                <td th:text="${genre.id}">1</td>
-                <td th:text="${genre.name}">Genre name</td>
+            <tr th:each="book : ${books}">
+                <td th:text="${book.id}">1</td>
+                <td th:text="${book.name}">Book name</td>
+                <td th:text="${book.author.firstName + ' ' + book.author.lastName}">Author</td>
+                <td th:text="${book.genre.name}">Genre</td>
                 <td>
-                    <a th:href="@{/library/genre/edit(id=${genre.id})}" href="edit.html">Edit</a>
+                    <a href="edit.html" th:href="@{/library/book/edit(id=${book.id})}">Edit</a>
                 </td>
                 <td>
-                    <form th:method="delete" th:action="@{/library/genre/delete(id=${genre.id})}">
+                    <form th:method="delete" th:action="@{/library/book/delete(id=${book.id})}">
                         <button class="deleteBtn" type="submit">Delete</button>
                     </form>
                 </td>

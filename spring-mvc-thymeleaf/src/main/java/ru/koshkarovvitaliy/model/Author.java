@@ -1,11 +1,14 @@
 package ru.koshkarovvitaliy.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
+import lombok.*;
 
 @Entity
 @Table(name = "authors")
-@Data
+@NoArgsConstructor
+@Getter
+@Setter
+@ToString
 public class Author {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
