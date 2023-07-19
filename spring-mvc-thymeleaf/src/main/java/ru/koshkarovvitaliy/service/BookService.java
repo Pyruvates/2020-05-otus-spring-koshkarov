@@ -43,4 +43,8 @@ public class BookService {
             log.error("{}: {}", ex.getClass(), ex.getMessage());
         }
     }
+
+    public Book saveBook(final Book book) {
+        return bookRepository.save(book);
+    }
 }

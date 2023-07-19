@@ -30,14 +30,16 @@ public class BookController {
 
     @GetMapping(path = "/book/add-new-book")
     public String addNewBook(@ModelAttribute("book") final Book book) {
-        log.info("Adding new book");
         return "book/new";
     }
 
     @PostMapping(path = "/book/save-new-book", params = "add")
-    public String saveNewBook() {
-//        TODO: add implementation
-        log.info("Save new book");
+    public String saveNewBook(final Book book) {
+        log.info("Passed params {}", book);
+
+        Book savedBook = bookService.saveBook(book);
+        log.info("Book has been saved {}", savedBook);
+
         return "redirect:/library/book";
     }
 

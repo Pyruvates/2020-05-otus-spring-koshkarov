@@ -16,10 +16,17 @@
             margin-top: 10px;
         }
 
+        .row {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: large;
+        }
+
         label {
             display: inline-block;
             padding-right: 6px;
             font-size: large;
+            width: 8%;
         }
 
         input {
@@ -27,7 +34,7 @@
         }
 
         .buttons {
-            padding-top: 10px;
+            padding-top: 8px;
         }
 
         .add {
@@ -44,8 +51,25 @@
     <div class="header">Adding new book</div>
 
     <form class="addBookForm" th:object="${book}" th:method="post" th:action="@{/library/book/save-new-book}">
-        <label for="book-input" value="">Book name</label>
-        <input id="book-input" type="text" value="Book name" th:field="*{name}"/>
+        <div class="row">
+            <label for="book-input" value="">Book name</label>
+            <input id="book-input" type="text" value="Book name" th:field="*{name}"/>
+        </div>
+
+        <div class="row">
+            <label for="author-firstname-input" value="">Author's first name</label>
+            <input id="author-firstname-input" type="text" value="Author's first name" th:field="${book.author.firstName}"/>
+        </div>
+
+        <div class="row">
+            <label for="author-lastname-input" value="">Author's last name</label>
+            <input id="author-lastname-input" type="text" value="Author's last name" th:field="${book.author.lastName}"/>
+        </div>
+
+        <div class="row">
+            <label for="genre-input" value="">Genre</label>
+            <input id="genre-input" type="text" value="Genre" th:field="${book.genre.name}"/>
+        </div>
 
         <div class="buttons">
             <button class="add" type="submit" name="add">Add</button>
