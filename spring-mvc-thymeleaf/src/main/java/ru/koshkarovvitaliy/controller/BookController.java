@@ -7,9 +7,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import ru.koshkarovvitaliy.model.Book;
 import ru.koshkarovvitaliy.model.BookDTO;
+import ru.koshkarovvitaliy.model.Genre;
 import ru.koshkarovvitaliy.service.BookService;
+import ru.koshkarovvitaliy.service.GenreService;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Controller
 @RequestMapping(path = "/library")
@@ -17,6 +20,7 @@ import java.util.List;
 @Slf4j
 public class BookController {
     private final BookService bookService;
+    private final GenreService genreService;
 
     @GetMapping(path = "/book")
     public String getAllBooks(final Model bookModel) {
@@ -53,7 +57,10 @@ public class BookController {
         Book book = bookService.getBookById(id);
         log.info("Found {}", book);
 
+        List<Genre> genres = genreService.getAllGenres();
+
         editModel.addAttribute("book", book);
+        editModel.addAttribute("genres", genres.stream().map(Genre::getName).collect(Collectors.toList()));
 
         return "book/edit.html";
     }
