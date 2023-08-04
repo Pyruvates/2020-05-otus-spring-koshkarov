@@ -67,14 +67,14 @@
         </div>
         <div class="row">
             <label for="author-firstname-input">Author's firstname:</label>
-            <input id="author-firstname-input" type="text" name="authorFirstName" th:value="*{author.firstName} ?: Unknown" value="Author's firstname"/>
+            <input id="author-firstname-input" type="text" name="authorFirstName" th:value="*{author.firstName}" value="Author's firstname"/>
             <select id="author-select" onchange="selectAuthor()">
                 <option th:each="author : ${authors}" th:value="${author}" th:text="${author}">Author's firstname and lastname</option>
             </select>
         </div>
         <div class="row">
             <label for="author-lastname-input">Author's lastname:</label>
-            <input id="author-lastname-input" type="text" name="authorLastName" th:value="*{author.lastName} ?: Unknown" value="Author's lastname"/>
+            <input id="author-lastname-input" type="text" name="authorLastName" th:value="*{author.lastName}" value="Author's lastname"/>
         </div>
         <div class="row">
             <label for="genre-input">Genre:</label>
