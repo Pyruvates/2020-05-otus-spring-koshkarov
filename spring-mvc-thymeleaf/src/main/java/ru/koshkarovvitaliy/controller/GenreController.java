@@ -48,15 +48,4 @@ public class GenreController {
     public ModelAndView cancelSaveNewGenre() {
         return new ModelAndView("redirect:/library/genre");
     }
-
-    @PostMapping(path = "/genre/delete")
-    public ModelAndView deleteGenre(@RequestParam("id") final Integer id) {
-        Genre genre = genreService.getGenreById(id);
-
-        genreService.deleteGenreById(id);
-
-        log.info("{} has been deleted", genre);
-
-        return new ModelAndView("redirect:/library/genre");
-    }
 }

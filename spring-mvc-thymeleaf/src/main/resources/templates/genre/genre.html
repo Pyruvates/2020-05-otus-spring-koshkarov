@@ -64,18 +64,12 @@
             <tr>
                 <th>ID</th>
                 <th>Name</th>
-                <th></th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="genre : ${genres}">
                 <td th:text="${genre.id}">1</td>
                 <td th:text="${genre.name}">Genre name</td>
-                <td>
-                    <form th:method="delete" th:action="@{/library/genre/delete(id=${genre.id})}">
-                        <button class="deleteBtn" type="submit">Delete</button>
-                    </form>
-                </td>
             </tr>
         </tbody>
     </table>

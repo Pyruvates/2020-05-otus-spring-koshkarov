@@ -88,9 +88,9 @@ public class BookController {
     public String deleteBook(@RequestParam("id") final Integer id) {
         Book book = bookService.getBookById(id);
 
-        bookService.deleteBookById(id);
-
         log.info("{} has been deleted", book);
+
+        bookService.deleteBookById(id);
 
         return "redirect:/library/book";
     }

@@ -22,7 +22,7 @@ public class Book {
     @JoinColumn(name = "author_id", nullable = false)
     private Author author;
 
-    @OneToOne(targetEntity = Genre.class, fetch = FetchType.LAZY)
+    @OneToOne(targetEntity = Genre.class, cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
     @JoinColumn(name = "genre_id", nullable = false)
     private Genre genre;
 }
