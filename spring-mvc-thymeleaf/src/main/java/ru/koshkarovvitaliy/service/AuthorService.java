@@ -4,7 +4,6 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.koshkarovvitaliy.model.Author;
 import ru.koshkarovvitaliy.repository.AuthorRepository;
-import ru.koshkarovvitaliy.repository.EntityNotFoundException;
 
 import java.util.List;
 
@@ -19,13 +18,5 @@ public class AuthorService {
 
     public Author saveAuthor(final Author author) {
         return authorRepository.save(author);
-    }
-
-    public Author getAuthorById(final Integer id) {
-        return authorRepository.findById(id).orElseThrow(EntityNotFoundException::new);
-    }
-
-    public void deleteAuthorById(final Integer id) {
-        authorRepository.deleteById(id);
     }
 }

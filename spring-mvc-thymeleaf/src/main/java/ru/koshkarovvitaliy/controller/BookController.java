@@ -57,10 +57,10 @@ public class BookController {
         Book book = bookService.getBookById(id);
         log.info("Found {}", book);
 
-        List<Genre> genres = genreService.getUniqueByNameGenres();
+        List<Genre> genres = genreService.getAllGenres();
 
         editModel.addAttribute("book", book);
-        editModel.addAttribute("genres", genres.stream().map(Genre::getName).collect(Collectors.toList()));
+        editModel.addAttribute("genres", genres.stream().map(Genre::getName).collect(Collectors.toSet()));
 
         return "book/edit.html";
     }
