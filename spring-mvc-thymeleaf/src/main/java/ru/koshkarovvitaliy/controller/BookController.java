@@ -5,9 +5,11 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import ru.koshkarovvitaliy.model.Author;
 import ru.koshkarovvitaliy.model.Book;
 import ru.koshkarovvitaliy.model.BookDTO;
 import ru.koshkarovvitaliy.model.Genre;
+import ru.koshkarovvitaliy.service.AuthorService;
 import ru.koshkarovvitaliy.service.BookService;
 import ru.koshkarovvitaliy.service.GenreService;
 
@@ -21,6 +23,7 @@ import java.util.stream.Collectors;
 public class BookController {
     private final BookService bookService;
     private final GenreService genreService;
+    private final AuthorService authorService;
 
     @GetMapping(path = "/book")
     public String getAllBooks(final Model bookModel) {
@@ -56,11 +59,19 @@ public class BookController {
     public String editBook(final Model editModel, @RequestParam("id") final Integer id) {
         Book book = bookService.getBookById(id);
         log.info("Found {}", book);
+        editModel.addAttribute("book", book);
 
         List<Genre> genres = genreService.getAllGenres();
+        editModel.addAttribute("genres",
+                genres.stream()
+                        .map(Genre::getName)
+                        .collect(Collectors.toSet()));
 
-        editModel.addAttribute("book", book);
-        editModel.addAttribute("genres", genres.stream().map(Genre::getName).collect(Collectors.toSet()));
+        List<Author> authors = authorService.getAllAuthors();
+        editModel.addAttribute("authors",
+                authors.stream()
+                        .map(author -> String.join(" ", author.getFirstName(), author.getLastName()))
+                        .collect(Collectors.toSet()));
 
         return "book/edit.html";
     }
