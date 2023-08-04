@@ -57,7 +57,7 @@ public class BookController {
         Book book = bookService.getBookById(id);
         log.info("Found {}", book);
 
-        List<Genre> genres = genreService.getAllGenres();
+        List<Genre> genres = genreService.getUniqueByNameGenres();
 
         editModel.addAttribute("book", book);
         editModel.addAttribute("genres", genres.stream().map(Genre::getName).collect(Collectors.toList()));
