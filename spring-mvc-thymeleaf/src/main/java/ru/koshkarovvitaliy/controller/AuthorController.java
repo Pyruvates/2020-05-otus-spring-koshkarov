@@ -46,42 +46,4 @@ public class AuthorController {
     public String cancelSaveNewAuthor() {
         return "redirect:/library/author";
     }
-
-    @GetMapping(path = "author/edit")
-    public String editAuthor(final Model editModel, @RequestParam("id") final Integer id) {
-        Author author = authorService.getAuthorById(id);
-
-        log.info("Found {}", author);
-
-        editModel.addAttribute("author", author);
-
-        return "author/edit";
-    }
-
-    @PostMapping(path = "author/edit", params = "save")
-    public String saveEditedAuthor(final Author author) {
-        Author editedAuthor = authorService.saveAuthor(author);
-
-        log.info("Saved author after edit {}", editedAuthor);
-
-        return "redirect:/library/author";
-    }
-
-    @PostMapping(path = "author/edit", params = "cancel")
-    public String cancelSaveEditedAuthor(final Author author) {
-        log.info("Cancel edit {}", author);
-
-        return "redirect:/library/author";
-    }
-
-    @PostMapping(path = "author/delete")
-    public String deleteAuthor(@RequestParam("id") final Integer id) {
-        Author author = authorService.getAuthorById(id);
-
-        authorService.deleteAuthorById(id);
-
-        log.info("{} has been deleted", author);
-
-        return "redirect:/library/author";
-    }
 }
