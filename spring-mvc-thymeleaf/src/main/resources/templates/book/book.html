@@ -63,7 +63,7 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th style="width: 40%;">Name</th>
+                <th>Name</th>
                 <th><a href="../author/author.html" th:href="@{/library/author}">Author</a></th>
                 <th><a href="../genre/genre.html" th:href="@{/library/genre}">Genre</a></th>
                 <th></th>
@@ -73,9 +73,9 @@
         <tbody>
             <tr th:each="book : ${books}">
                 <td th:text="${book.id}">1</td>
-                <td th:text="${book.name}">Book name</td>
-                <td th:text="${book.author.firstName + ' ' + book.author.lastName}">Author</td>
-                <td th:text="${book.genre.name}">Genre</td>
+                <td th:text="${book?.name}">Book name</td>
+                <td th:text="${book.author} != null ? ${book.author.firstName} + ' ' + ${book.author.lastName} : Unknown">Author</td>
+                <td th:text="${book?.genre?.name} ?: Unknown">Genre</td>
                 <td>
                     <a href="edit.html" th:href="@{/library/book/edit(id=${book.id})}">Edit</a>
                 </td>

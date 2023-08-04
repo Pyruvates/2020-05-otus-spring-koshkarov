@@ -67,17 +67,17 @@
         </div>
         <div class="row">
             <label for="author-firstname-input">Author's firstname:</label>
-            <input id="author-firstname-input" type="text" name="authorFirstName" th:value="*{author.firstName}" value="Author's firstname"/>
+            <input id="author-firstname-input" type="text" name="authorFirstName" th:value="*{author.firstName} ?: Unknown" value="Author's firstname"/>
         </div>
         <div class="row">
             <label for="author-lastname-input">Author's lastname:</label>
-            <input id="author-lastname-input" type="text" name="authorLastName" th:value="*{author.lastName}" value="Author's lastname"/>
+            <input id="author-lastname-input" type="text" name="authorLastName" th:value="*{author.lastName} ?: Unknown" value="Author's lastname"/>
         </div>
         <div class="row">
             <label for="genre-input">Genre:</label>
-            <input id="genre-input" type="text" name="genreName" th:value="*{genre.name}" value="Genre"/>
+            <input id="genre-input" type="text" name="genreName" th:value="*{genre.name} " value="Genre"/>
             <select id="genre-select" onchange="selectGenre()">
-                <option th:each="genre : ${genres}" th:value="${genre}" th:text="${genre}">Genre</option>
+                <option th:each="genre : ${genres}" th:value="${genre}" th:text="${genre} ?: Unknown">Genre</option>
             </select>
         </div>
 
