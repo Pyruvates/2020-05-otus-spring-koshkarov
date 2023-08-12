@@ -40,11 +40,6 @@
             padding-top: 4px;
             padding-bottom: 4px;
         }
-
-        .deleteBtn {
-            font-size: medium;
-            cursor: pointer;
-        }
     </style>
 </head>
 
@@ -63,23 +58,13 @@
         <thead>
             <tr>
                 <th>ID</th>
-                <th style="width: 40%;">Name</th>
-                <th></th>
-                <th></th>
+                <th>Name</th>
             </tr>
         </thead>
         <tbody>
             <tr th:each="genre : ${genres}">
                 <td th:text="${genre.id}">1</td>
                 <td th:text="${genre.name}">Genre name</td>
-                <td>
-                    <a th:href="@{/library/genre/edit(id=${genre.id})}" href="edit.html">Edit</a>
-                </td>
-                <td>
-                    <form th:method="delete" th:action="@{/library/genre/delete(id=${genre.id})}">
-                        <button class="deleteBtn" type="submit">Delete</button>
-                    </form>
-                </td>
             </tr>
         </tbody>
     </table>

@@ -29,7 +29,11 @@
 
         input {
             font-size: medium;
-            width: 50%;
+            width: 30%;
+        }
+
+        select {
+            font-size: medium;
         }
 
         .save {
@@ -45,6 +49,7 @@
             font-size: medium;
         }
     </style>
+    <script type="text/javascript" th:src="@{/js/book.js}" src="../../static/js/book.js"></script>
 </head>
 
 <body>
@@ -63,6 +68,9 @@
         <div class="row">
             <label for="author-firstname-input">Author's firstname:</label>
             <input id="author-firstname-input" type="text" name="authorFirstName" th:value="*{author.firstName}" value="Author's firstname"/>
+            <select id="author-select" onchange="selectAuthor()">
+                <option th:each="author : ${authors}" th:value="${author}" th:text="${author}">Author's firstname and lastname</option>
+            </select>
         </div>
         <div class="row">
             <label for="author-lastname-input">Author's lastname:</label>
@@ -71,6 +79,9 @@
         <div class="row">
             <label for="genre-input">Genre:</label>
             <input id="genre-input" type="text" name="genreName" th:value="*{genre.name}" value="Genre"/>
+            <select id="genre-select" onchange="selectGenre()">
+                <option th:each="genre : ${genres}" th:value="${genre}" th:text="${genre}">Genre</option>
+            </select>
         </div>
 
         <div>
